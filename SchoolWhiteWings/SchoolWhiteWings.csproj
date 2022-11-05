@@ -78,6 +78,7 @@
     <Compile Include="DataBase\Class.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\DBConnection.cs" />
     <Compile Include="DataBase\Group.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
@@ -119,10 +120,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AdminPages\AdminTimeTablePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AdminPages\AdminStartPage.xaml.cs">
       <DependentUpon>AdminStartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminTimeTablePage.xaml.cs">
+      <DependentUpon>AdminTimeTablePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

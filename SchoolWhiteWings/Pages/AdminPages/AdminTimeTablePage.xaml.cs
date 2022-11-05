@@ -10,29 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+using System.Collections.ObjectModel;
 
 namespace SchoolWhiteWings
 {
-    public partial class AdminStartPage : Page
+    public partial class AdminTimeTablePage : Page
     {
-        public AdminStartPage()
+        public AdminTimeTablePage()
         {
             InitializeComponent();
-            
-            UserNameBlock.Text = "Антон"; //забиндить юзернейм чела
+            lessons.ItemsSource = DataBase.DBConnection.conn.Lesson.ToList(); //строку подключения сами замените на свою
         }
 
-        private void LessonTablePage_Opening(object sender, RoutedEventArgs e)
+        private void PreviousPage_Opening(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminTimeTablePage());
+            NavigationService.Navigate(new AdminStartPage());
         }
-
-        private void SectionPage_Opening(object sender, RoutedEventArgs e)
-        {
-
-        }
-
     }
 }

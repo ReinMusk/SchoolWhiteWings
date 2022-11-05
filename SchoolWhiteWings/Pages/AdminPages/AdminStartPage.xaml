@@ -56,7 +56,7 @@
             FontSize="26"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Click="ToLessonTable_Click"/>
+            Click="SectionPage_Opening"/>
         
     </Grid>
 </Page>
