@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -78,7 +81,6 @@
     <Compile Include="DataBase\Class.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\DBConnection.cs" />
     <Compile Include="DataBase\Group.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
@@ -112,6 +114,7 @@
     <Compile Include="DataBase\Teacher.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\DBConnection.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -179,6 +182,8 @@
       <DependentUpon>SchoolModel.edmx</DependentUpon>
       <LastGenOutput>SchoolModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="logo.ico" />
+    <Resource Include="Resources\Images\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

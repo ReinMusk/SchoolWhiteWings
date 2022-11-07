@@ -7,8 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="760" Width="1280">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Frame Background="#FAB7A4"/>
+        <Image Source="../Resources/Images/logo.png"
+               HorizontalAlignment="Left" Width="100"/>
 
-        </Grid.ColumnDefinitions>
+        <Frame Grid.Row="1" x:Name="Log_frame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

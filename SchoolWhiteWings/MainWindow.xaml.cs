@@ -23,6 +23,8 @@ namespace SchoolWhiteWings
         public MainWindow()
         {
             InitializeComponent();
+
+            //Log_frame.NavigationService.Navigate(new Page_Author());
         }
     }
 }

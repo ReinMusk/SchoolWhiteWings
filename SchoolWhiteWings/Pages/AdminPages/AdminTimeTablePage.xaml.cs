@@ -21,7 +21,7 @@ namespace SchoolWhiteWings
         public AdminTimeTablePage()
         {
             InitializeComponent();
-            lessons.ItemsSource = DataBase.DBConnection.conn.Lesson.ToList(); //строку подключения сами замените на свою
+            lessons.ItemsSource = DBConnection.conn.Lesson.ToList(); //строку подключения сами замените на свою
         }
 
         private void PreviousPage_Opening(object sender, RoutedEventArgs e)
