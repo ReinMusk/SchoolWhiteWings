@@ -13,17 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SchoolWhiteWings
+namespace SchoolWhiteWings.Pages.AuthRegPages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для AuthPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AuthPage : Page
     {
-        public MainWindow()
+        public AuthPage()
         {
             InitializeComponent();
+        }
 
+        private void SignInBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO:
+            //Authorization
         }
     }
 }
