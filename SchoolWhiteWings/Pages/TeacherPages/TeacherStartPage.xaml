@@ -44,8 +44,7 @@
             Content="Расписание занятий"
             FontSize="26"
             HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"
-            Click="LessonTablePage_Opening"/>
+            VerticalContentAlignment="Center"/>
 
         <Button
             x:Name="ToSectionTable"
@@ -55,8 +54,7 @@
             Content="Список кружков"
             FontSize="26"
             HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"
-            Click="SectionPage_Opening"/>
+            VerticalContentAlignment="Center"/>
 
     </Grid>
 </Page>

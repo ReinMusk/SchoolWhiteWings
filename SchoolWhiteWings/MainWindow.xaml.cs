@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolWhiteWings.DB;
+using SchoolWhiteWings.Pages.AuthRegPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +22,12 @@ namespace SchoolWhiteWings
     /// </summary>
     public partial class MainWindow : Window
     {
+        internal static SchoolWhiteWingsEntities db = new SchoolWhiteWingsEntities();
         public MainWindow()
         {
             InitializeComponent();
 
+            Log_frame.Content = new AuthPage();
         }
     }
 }

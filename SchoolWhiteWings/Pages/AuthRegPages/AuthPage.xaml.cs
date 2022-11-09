@@ -27,8 +27,23 @@ namespace SchoolWhiteWings.Pages.AuthRegPages
 
         private void SignInBtn_Click(object sender, RoutedEventArgs e)
         {
-            //TODO:
-            //Authorization
+            int _id = 0;
+
+            if (int.TryParse(LoginTb.Text, out var number))
+                _id = number;
+            else
+            {
+                MessageBox.Show("Login consists only of numbers ");
+                return;
+            }
+            var teacher = MainWindow.db.Teacher.Where(p => p.Id == _id && p.Password == PasswordCb.Password).FirstOrDefault();
+            if(teacher != null)
+            {
+                if (teacher.IsAdmin == true)
+                    NavigationService.Navigate(new AdminStartPage());
+                else
+                    NavigationService.Navigate(new TeacherStartPage(teacher));
+            }    
         }
     }
 }
