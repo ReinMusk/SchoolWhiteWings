@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolWhiteWings"
         mc:Ignorable="d"
-        Title="MainWindow" Height="760" Width="1280">
+        Title="Школа белые крылья" Height="760" Width="1280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
