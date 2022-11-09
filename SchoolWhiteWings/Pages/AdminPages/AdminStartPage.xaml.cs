@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolWhiteWings.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,11 @@ namespace SchoolWhiteWings
 {
     public partial class AdminStartPage : Page
     {
-        public AdminStartPage()
+        public AdminStartPage(Teacher teacher)
         {
             InitializeComponent();
             
-            UserNameBlock.Text = "Антон"; //забиндить юзернейм чела
+            UserNameBlock.Text = $"{teacher.FirstName} {teacher.LastName}"; 
         }
 
         private void LessonTablePage_Opening(object sender, RoutedEventArgs e)

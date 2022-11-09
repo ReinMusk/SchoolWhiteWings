@@ -22,7 +22,7 @@ namespace SchoolWhiteWings
     /// </summary>
     public partial class MainWindow : Window
     {
-        internal static SchoolWhiteWingsEntities db = new SchoolWhiteWingsEntities();
+        internal static SchoolWhiteWingsEntities db = new SchoolWhiteWingsEntities(); //бд коннектион блиа
         public MainWindow()
         {
             InitializeComponent();

@@ -27,8 +27,13 @@ namespace SchoolWhiteWings.Pages.AuthRegPages
 
         private void SignInBtn_Click(object sender, RoutedEventArgs e)
         {
-            int _id = 0;
+            if(LoginTb.Text == "" || PasswordCb.Password == "")
+            {
+                MessageBox.Show("Enter the data");
+                return;
+            }
 
+            int _id = 0;
             if (int.TryParse(LoginTb.Text, out var number))
                 _id = number;
             else
@@ -36,14 +41,17 @@ namespace SchoolWhiteWings.Pages.AuthRegPages
                 MessageBox.Show("Login consists only of numbers ");
                 return;
             }
+
             var teacher = MainWindow.db.Teacher.Where(p => p.Id == _id && p.Password == PasswordCb.Password).FirstOrDefault();
-            if(teacher != null)
+            if (teacher != null)
             {
                 if (teacher.IsAdmin == true)
                     NavigationService.Navigate(new AdminStartPage());
                 else
                     NavigationService.Navigate(new TeacherStartPage(teacher));
-            }    
+            }
+            else
+                MessageBox.Show("User not found");
         }
     }
 }
