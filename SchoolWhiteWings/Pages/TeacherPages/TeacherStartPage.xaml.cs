@@ -34,5 +34,10 @@ namespace SchoolWhiteWings
         {
             NavigationService.Navigate(new SectionTablePage(teacher));
         }
+
+        private void ToLessonTable_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

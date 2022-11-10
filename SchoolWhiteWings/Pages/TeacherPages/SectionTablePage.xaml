@@ -20,18 +20,18 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="OrdersLV" 
+        <ListView x:Name="SectionsLV" 
                   ItemsSource="{Binding teacherForSection}"
                   Grid.Column="0"
                   Grid.ColumnSpan="3" 
                   Grid.Row="1"
-                  Grid.RowSpan="4">
+                  Grid.RowSpan="4" SelectionChanged="SectionsLV_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Header="Название секции" Width="27" DisplayMemberBinding="{Binding Section.Name}"/>
-                    <GridViewColumn Header="Название секции" Width="27" DisplayMemberBinding="{Binding Section.Group.Id}"/>
-                    <GridViewColumn Header="Кабинет"  DisplayMemberBinding="{Binding Cabinet.Number}"/>
+                    <GridViewColumn Header="Id группы" Width="27" DisplayMemberBinding="{Binding Group.Id}"/>
+                    <GridViewColumn Header="Кабинет"  DisplayMemberBinding="{Binding Section.Cabinet.Number}"/>
                 </GridView>
             </ListView.View>
         </ListView>

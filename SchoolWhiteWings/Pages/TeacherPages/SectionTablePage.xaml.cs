@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Collections.Specialized.BitVector32;
+using Section = SchoolWhiteWings.DataBase.Section;
 
 namespace SchoolWhiteWings
 {
@@ -21,7 +23,7 @@ namespace SchoolWhiteWings
     /// </summary>
     public partial class SectionTablePage : Page
     {
-        public List<TeacherForSection> teacherForSection { get; set; }
+        public static List<TeacherForSection> teacherForSection { get; set; }
         public Teacher teacher { get; set;}
         public SectionTablePage(Teacher oldTeacher)
         {
@@ -36,6 +38,13 @@ namespace SchoolWhiteWings
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void SectionsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var section = (SectionsLV.SelectedItem as TeacherForSection).Section;
+
+            NavigationService.Navigate(new SectionPage(section));
         }
     }
 }

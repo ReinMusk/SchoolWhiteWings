@@ -44,7 +44,7 @@
             Content="Расписание занятий"
             FontSize="26"
             HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"/>
+            VerticalContentAlignment="Center" Click="ToLessonTable_Click"/>
 
         <Button
             x:Name="ToSectionTable"
