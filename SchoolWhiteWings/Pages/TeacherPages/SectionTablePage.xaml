@@ -20,12 +20,12 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="OrdersLV" 
+        <ListView x:Name="SectionsLV" 
                   ItemsSource="{Binding teacherForSection}"
                   Grid.Column="0"
                   Grid.ColumnSpan="3" 
                   Grid.Row="1"
-                  Grid.RowSpan="4">
+                  Grid.RowSpan="4" SelectionChanged="SectionsLV_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Id}"/>
