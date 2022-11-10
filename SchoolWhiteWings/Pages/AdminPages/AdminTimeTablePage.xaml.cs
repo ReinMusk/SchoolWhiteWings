@@ -18,9 +18,12 @@ namespace SchoolWhiteWings
 {
     public partial class AdminTimeTablePage : Page
     {
+        public static List<Lesson> lessonList { get; set; }
         public AdminTimeTablePage()
         {
             InitializeComponent();
+            lessonList = MainWindow.db.Lesson.ToList();
+            this.DataContext = this;
         }
 
         private void PreviousPage_Opening(object sender, RoutedEventArgs e)

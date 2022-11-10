@@ -28,7 +28,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Кружок"  DisplayMemberBinding="{Binding SectionId.Name}"/>
+                    <GridViewColumn Header="Кружок"  DisplayMemberBinding="{Binding Section.Name}"/>
                     <GridViewColumn Header="Начало занятия" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
                     <GridViewColumn Header="Конец занятия" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
                     <GridViewColumn Header="Проведено" DisplayMemberBinding="{Binding LessonIsBe}"/>
