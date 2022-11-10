@@ -1,4 +1,4 @@
-﻿using SchoolWhiteWings.DB;
+﻿using SchoolWhiteWings.DataBase;
 using SchoolWhiteWings.Pages.AuthRegPages;
 using System;
 using System.Collections.Generic;
