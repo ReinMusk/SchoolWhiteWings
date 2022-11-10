@@ -47,7 +47,7 @@ namespace SchoolWhiteWings.Pages.AuthRegPages
             if (teacher != null)
             {
                 if (teacher.IsAdmin == true)
-                    NavigationService.Navigate(new AdminStartPage());
+                    NavigationService.Navigate(new AdminStartPage(teacher));
                 else
                     NavigationService.Navigate(new TeacherStartPage(teacher));
             }

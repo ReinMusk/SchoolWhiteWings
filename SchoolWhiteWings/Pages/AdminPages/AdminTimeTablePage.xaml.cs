@@ -25,7 +25,7 @@ namespace SchoolWhiteWings
 
         private void PreviousPage_Opening(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminStartPage());
+            NavigationService.GoBack();
         }
     }
 }

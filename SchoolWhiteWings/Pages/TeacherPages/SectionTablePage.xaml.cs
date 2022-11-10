@@ -17,22 +17,25 @@ using System.Windows.Shapes;
 namespace SchoolWhiteWings
 {
     /// <summary>
-    /// Interaction logic for TeacherStartPage.xaml
+    /// Interaction logic for SectionTablePage.xaml
     /// </summary>
-    public partial class TeacherStartPage : Page
+    public partial class SectionTablePage : Page
     {
-        public Teacher teacher { get; set; }
-        public TeacherStartPage(Teacher oldTeacher)
+        public List<TeacherForSection> teacherForSection { get; set; }
+        public Teacher teacher { get; set;}
+        public SectionTablePage(Teacher oldTeacher)
         {
             InitializeComponent();
-            teacher = oldTeacher;
 
-            UserNameBlock.Text = teacher.FirstName + " " + teacher.LastName;
+            teacher = oldTeacher;
+            teacherForSection = MainWindow.db.TeacherForSection.Where(x => x.TeacherId == teacher.Id).ToList();
+
+            this.DataContext = this;
         }
 
-        private void ToSectionTable_Click(object sender, RoutedEventArgs e)
+        private void ButtonBack(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new SectionTablePage(teacher));
+            NavigationService.GoBack();
         }
     }
 }

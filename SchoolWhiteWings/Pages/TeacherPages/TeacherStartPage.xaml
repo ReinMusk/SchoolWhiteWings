@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolWhiteWings"
       mc:Ignorable="d" 
-      d:DesignHeight="760" d:DesignWidth="1280" Height="760" Width="1280"
+      d:DesignHeight="760" d:DesignWidth="1280"
       Title="TeacherStartPage">
 
     <Grid>
@@ -54,7 +54,7 @@
             Content="Список кружков"
             FontSize="26"
             HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"/>
+            VerticalContentAlignment="Center" Click="ToSectionTable_Click"/>
 
     </Grid>
 </Page>
