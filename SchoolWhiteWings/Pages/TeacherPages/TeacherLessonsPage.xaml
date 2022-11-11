@@ -33,6 +33,13 @@
                     <GridViewColumn Header="Начало" Width="80" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
                     <GridViewColumn Header="Конец" Width="80" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
                     <GridViewColumn Header="Занятие было" Width="80" DisplayMemberBinding="{Binding LessonIsBe}"/>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="cbLessonIsBe" Margin="0" VerticalAlignment="Center" IsChecked="{Binding LessonIsBe}" Checked="cbLessonIsBe_Checked" Unchecked="cbLessonIsBe_Checked"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

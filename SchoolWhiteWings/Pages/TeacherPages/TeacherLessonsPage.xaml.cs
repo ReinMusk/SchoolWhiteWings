@@ -42,5 +42,10 @@ namespace SchoolWhiteWings.Pages.TeacherPages
 
             NavigationService.Navigate(new JournalPage(lesson));
         }
+
+        private void cbLessonIsBe_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
