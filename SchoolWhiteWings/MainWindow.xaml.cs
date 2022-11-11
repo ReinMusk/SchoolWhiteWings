@@ -27,7 +27,7 @@ namespace SchoolWhiteWings
         {
             InitializeComponent();
 
-            Log_frame.Content = new AllSectionPage();
+            Log_frame.Content = new AuthPage();
         }
     }
 }

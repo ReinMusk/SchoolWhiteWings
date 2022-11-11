@@ -34,7 +34,7 @@ namespace SchoolWhiteWings
 
         private void SectionPage_Opening(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AllSectionPage(_tempTeacher));
         }
 
         private void TeacherList_Opening(object sender, RoutedEventArgs e)

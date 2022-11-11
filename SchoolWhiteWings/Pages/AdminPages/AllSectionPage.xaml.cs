@@ -22,11 +22,13 @@ namespace SchoolWhiteWings
     public partial class AllSectionPage : Page
     {
         private List<DataBase.Section> sections { get; set; }
-        public AllSectionPage()
+        private DataBase.Teacher _teacher;
+        public AllSectionPage(DataBase.Teacher teacher)
         {
             InitializeComponent();
             sections = MainWindow.db.Section.ToList();
 
+            _teacher = teacher;
             SectionLV.ItemsSource = sections;
             this.DataContext = this;
         }
@@ -35,12 +37,17 @@ namespace SchoolWhiteWings
         {
             var section = SectionLV.SelectedItem as DataBase.Section;
             
-            NavigationService.Navigate(new Pages.AddEditSectionPage(section));
+            NavigationService.Navigate(new Pages.AddEditSectionPage(section, _teacher));
         }
 
         private void AddSectionBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.AddEditSectionPage(new DataBase.Section()));
+            NavigationService.Navigate(new Pages.AddEditSectionPage(new DataBase.Section(), _teacher));
+        }
+
+        private void PreviousPage_Opening(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminStartPage(_teacher));
         }
     }
 }

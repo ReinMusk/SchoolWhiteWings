@@ -22,11 +22,13 @@ namespace SchoolWhiteWings.Pages
     public partial class AddEditSectionPage : Page
     {
         private DataBase.Section currentSection { get; set; }
+        private DataBase.Teacher _teacher { get; set; }
         private List<Cabinet> cabinets { get; set; }    
-        public AddEditSectionPage(DataBase.Section section)
+        public AddEditSectionPage(DataBase.Section section, DataBase.Teacher teacher)
         {
             InitializeComponent();
 
+            _teacher = teacher;
             currentSection = section;
             cabinets = MainWindow.db.Cabinet.ToList();
 
@@ -43,7 +45,7 @@ namespace SchoolWhiteWings.Pages
                 MainWindow.db.Section.Add(currentSection);
             MainWindow.db.SaveChanges();
 
-            NavigationService.Navigate(new AllSectionPage());
+            NavigationService.Navigate(new AllSectionPage(_teacher));
         }
 
         private void DelSectionBtn_Click(object sender, RoutedEventArgs e)
@@ -60,8 +62,12 @@ namespace SchoolWhiteWings.Pages
                 MainWindow.db.Section.Remove(currentSection);
                 MainWindow.db.SaveChanges();
 
-                NavigationService.Navigate(new AllSectionPage());
+                NavigationService.Navigate(new AllSectionPage(_teacher));
             }
+        }
+        private void PreviousPage_Opening(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AllSectionPage(_teacher));
         }
     }
 }
