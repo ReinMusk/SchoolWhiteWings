@@ -1,0 +1,52 @@
+﻿<Page x:Class="SchoolWhiteWings.AllSectionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolWhiteWings"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="1280"
+      Title="AllSectionPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView
+            x:Name="SectionLV"
+            Grid.Column="1"
+            Grid.Row="1"
+            SelectionChanged="SectionLV_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Header="Id"
+                        DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn
+                        Header="Название секции"
+                        DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn
+                        Header="Кабинет"
+                        DisplayMemberBinding="{Binding Cabinet.Number}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="200"
+            Height="100"
+            VerticalAlignment="Bottom"
+            Margin="10"
+            Content="Добавить новую секцию"
+            x:Name="AddSectionBtn"
+            Click="AddSectionBtn_Click"/>
+    </Grid>
+</Page>
