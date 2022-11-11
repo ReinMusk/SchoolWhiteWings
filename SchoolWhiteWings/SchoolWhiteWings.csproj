@@ -70,6 +70,12 @@
     <Compile Include="AddStudentToGroupPage.xaml.cs">
       <DependentUpon>AddStudentToGroupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdminPages\AdminNewTeacherAddPage.xaml.cs">
+      <DependentUpon>AdminNewTeacherAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AllSectionPage.xaml.cs">
+      <DependentUpon>AllSectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\Cabinet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -102,6 +108,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AddEditSectionPage.xaml.cs">
+      <DependentUpon>AddEditSectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminTeacherListPage.xaml.cs">
+      <DependentUpon>AdminTeacherListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthRegPages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
@@ -137,6 +149,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AdminPages\AllSectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminNewTeacherAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,7 +169,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AdminPages\AddEditSectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AdminPages\AdminStartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminTeacherListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
