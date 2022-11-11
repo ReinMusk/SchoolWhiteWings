@@ -49,6 +49,7 @@ namespace SchoolWhiteWings
                     temp.isDeleted = true;
                     MainWindow.db.Teacher.FirstOrDefault();
                     MainWindow.db.SaveChanges();
+                    NavigationService.Navigate(new AdminTeacherListPage(_tempTeacher));
                 }
             }    
             else

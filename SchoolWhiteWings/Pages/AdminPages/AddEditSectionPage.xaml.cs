@@ -110,12 +110,19 @@ namespace SchoolWhiteWings.Pages
 
         private void TeacherFromSection_Delete(object sender, RoutedEventArgs e)
         {
-            DataBase.TeacherForSection tempRecord = _tfs.Where(t => t.TeacherId == (Teachers.SelectedItem as Teacher).Id).FirstOrDefault();
-            tempRecord.IsDeleted = true;
-            MainWindow.db.TeacherForSection.FirstOrDefault();
-            MainWindow.db.SaveChanges();
+            if (Teachers.SelectedItem != null)
+            {
+                MessageBoxResult res = MessageBox.Show("Вы действительно хотите убрать учителя с поста руководителя кружка?", "Удаление", MessageBoxButton.OK);
+                if (res == MessageBoxResult.OK)
+                {
+                    DataBase.TeacherForSection tempRecord = _tfs.Where(t => t.TeacherId == (Teachers.SelectedItem as Teacher).Id).FirstOrDefault();
+                    tempRecord.IsDeleted = true;
+                    MainWindow.db.TeacherForSection.FirstOrDefault();
+                    MainWindow.db.SaveChanges();
 
-            NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
+                    NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
+                }
+            }
         }
 
     }
