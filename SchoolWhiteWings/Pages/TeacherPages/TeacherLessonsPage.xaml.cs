@@ -16,18 +16,24 @@ using System.Windows.Shapes;
 
 namespace SchoolWhiteWings.Pages.TeacherPages
 {
-    /// <summary>
-    /// Логика взаимодействия для TeacherLessonsPage.xaml
-    /// </summary>
     public partial class TeacherLessonsPage : Page
     {
         public static List<Lesson> lessons { get; set; }
+        private static List<TeacherForSection> _tfs { get; set; }
+        private HashSet<int> sects { get; set; }
         public Teacher teacher { get; set; }
         public TeacherLessonsPage(Teacher oldTeacher)
         {
             InitializeComponent();
             teacher = oldTeacher;
-            lessons = MainWindow.db.Lesson.ToList();
+            _tfs = MainWindow.db.TeacherForSection.Where(t => t.TeacherId == oldTeacher.Id).ToList();
+            sects = new HashSet<int>();
+            foreach (var temp in _tfs)
+            {
+                sects.Add(temp.SectionId);
+            }
+
+            lessons = MainWindow.db.Lesson.Where(t => sects.Contains((int)t.SectionId)).ToList();
             this.DataContext = this;
         }
 
