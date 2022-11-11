@@ -112,6 +112,12 @@
     <Compile Include="Pages\AuthRegPages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TeacherPages\JournalPage.xaml.cs">
+      <DependentUpon>JournalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeacherPages\TeacherLessonsPage.xaml.cs">
+      <DependentUpon>TeacherLessonsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TeacherPages\TeacherStartPage.xaml.cs">
       <DependentUpon>TeacherStartPage.xaml</DependentUpon>
     </Compile>
@@ -166,6 +172,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AuthRegPages\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TeacherPages\JournalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TeacherPages\TeacherLessonsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,42 @@
+﻿<Page x:Class="SchoolWhiteWings.Pages.TeacherPages.TeacherLessonsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolWhiteWings.Pages.TeacherPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TeacherLessonsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="lvLessons" 
+                  ItemsSource="{Binding lessons}"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="3" 
+                  Grid.Row="1"
+                  Grid.RowSpan="4" SelectionChanged="lvLessons_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Название секции" Width="130" DisplayMemberBinding="{Binding Section.Name}"/>
+                    <GridViewColumn Header="Начало" Width="80" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
+                    <GridViewColumn Header="Конец" Width="80" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
+                    <GridViewColumn Header="Занятие было" Width="80" DisplayMemberBinding="{Binding LessonIsBe}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Grid.Column="0" Grid.Row="0" Content="Назад" Click="ButtonBack"/>
+    </Grid>
+</Page>
