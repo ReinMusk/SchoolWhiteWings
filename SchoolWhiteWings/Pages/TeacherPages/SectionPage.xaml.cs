@@ -22,16 +22,13 @@ namespace SchoolWhiteWings
     /// </summary>
     public partial class SectionPage : Page
     {
-        public Section section { get; set; }
-
         public Group group { get; set; }
         public List<GroupStudent> students { get; set; }
-        public SectionPage(Section oldSection)
+        public SectionPage(Group oldGroup)
         {
             InitializeComponent();
-            section = oldSection;
+            group = oldGroup;
 
-            group = MainWindow.db.Group.Where(x => x.SectionId == section.Id).First();
             students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id).ToList();
 
             this.DataContext = this;
@@ -49,9 +46,13 @@ namespace SchoolWhiteWings
             if (selectedStudent != null)
             {
                 var result = MessageBox.Show("Вы точно хотите удалить студента?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.OK)
+                if (result == MessageBoxResult.Yes)
                 {
                     MainWindow.db.GroupStudent.Remove(selectedStudent);
+                    MainWindow.db.SaveChanges();
+
+                    students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id).ToList();
+                    StudentsLV.ItemsSource = students;
                 }
             }
             else
@@ -62,7 +63,7 @@ namespace SchoolWhiteWings
 
         private void ButtonAdd(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddStudentToGroupPage());
+            NavigationService.Navigate(new AddStudentToGroupPage(group));
         }
     }
 }

@@ -13,24 +13,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Collections.Specialized.BitVector32;
 using Section = SchoolWhiteWings.DataBase.Section;
 
 namespace SchoolWhiteWings
 {
     /// <summary>
-    /// Interaction logic for SectionTablePage.xaml
+    /// Interaction logic for SectionGroupsPage.xaml
     /// </summary>
-    public partial class SectionTablePage : Page
+    public partial class SectionGroupsPage : Page
     {
-        public static List<TeacherForSection> teacherForSection { get; set; }
-        public Teacher teacher { get; set;}
-        public SectionTablePage(Teacher oldTeacher)
+        public Section section { get; set; }
+
+        public static List<Group> groups { get; set; }
+        public SectionGroupsPage(Section oldSection)
         {
             InitializeComponent();
+            section = oldSection;
 
-            teacher = oldTeacher;
-            teacherForSection = MainWindow.db.TeacherForSection.Where(x => x.TeacherId == teacher.Id).ToList();
+            groups = MainWindow.db.Group.Where(x => x.SectionId == section.Id).ToList();
 
             this.DataContext = this;
         }
@@ -40,11 +40,9 @@ namespace SchoolWhiteWings
             NavigationService.GoBack();
         }
 
-        private void SectionsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GroupsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var section = (SectionsLV.SelectedItem as TeacherForSection).Section;
-
-            NavigationService.Navigate(new SectionGroupsPage(section));
+            NavigationService.Navigate(new SectionPage(GroupsLV.SelectedItem as Group));
         }
     }
 }

@@ -31,10 +31,10 @@
                   Grid.RowSpan="4">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Student.Id}"/>
-                    <GridViewColumn Header="Имя" Width="27" DisplayMemberBinding="{Binding Student.FirstName}"/>
-                    <GridViewColumn Header="Фамилия" Width="27" DisplayMemberBinding="{Binding Student.LastName}"/>
-                    <GridViewColumn Header="Класс"  DisplayMemberBinding="{Binding Student.Class.Number}"/>
+                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Student.Id}"/>
+                    <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding Student.FirstName}"/>
+                    <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding Student.LastName}"/>
+                    <GridViewColumn Header="Класс" Width="auto" DisplayMemberBinding="{Binding Student.Class.Number}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -43,8 +43,8 @@
         <Button Grid.Column="1" Grid.Row="0" Content="Удалить ученика" Click="ButtonDel"/>
         <Button Grid.Column="2" Grid.Row="0" Content="Добавить ученика" Click="ButtonAdd"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding section.Name}" x:Name="SectionNameTB"/>
-        <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding section.Cabinet.Number}" x:Name="NumberCabinetTB"/>
+        <TextBlock Grid.Column="3" Grid.Row="0" Text="{Binding group.Section.Name}" x:Name="SectionNameTB"/>
+        <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding group.Section.Cabinet.Number}" x:Name="NumberCabinetTB"/>
         <TextBlock Grid.Column="3" Grid.Row="2" Text="{Binding group.Id}" x:Name="GroupIdTB"/>
         <TextBlock Grid.Column="4" Grid.Row="2" Text="{Binding group.Name}" x:Name="GroupNameTB"/>
     </Grid>

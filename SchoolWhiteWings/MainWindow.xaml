@@ -12,7 +12,7 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <Frame Background="#FAB7A4"/>
-        <Image Source="../Resources/Images/logo.png"
+        <Image Source="../Resources/Images/logoWithText.png"
                HorizontalAlignment="Left" Width="100"/>
 
         <Frame Grid.Row="1" x:Name="Log_frame" NavigationUIVisibility="Hidden"/>
