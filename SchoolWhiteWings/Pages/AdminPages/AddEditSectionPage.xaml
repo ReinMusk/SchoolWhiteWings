@@ -12,7 +12,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -61,29 +62,67 @@
         <StackPanel
             Grid.Column="1"
             Grid.Row="3"
-            Orientation="Horizontal"
-            >
+            Orientation="Horizontal">
             <Button
-                Width="100"
+                Width="60"
                 Height="100"
                 Content="Удалить"
                 x:Name="DelSectionBtn"
                 Click="DelSectionBtn_Click"/>
             <Button
-                Width="100"
+                Width="60"
                 Height="100"
                 Content="Сохранить"
                 x:Name="SaveSectionBtn"
                 Click="SaveSectionBtn_Click"/>
             <Button
                 x:Name="BackButton"
-                Width="100"
+                Width="60"
                 Height="100"
                 Content="Назад"
                 FontSize="30"
                 VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center"
                 Click="PreviousPage_Opening"/>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.RowSpan="2">
+            <ScrollViewer 
+                Height="100"
+                CanContentScroll="True"
+                VerticalScrollBarVisibility="Hidden"
+                PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                <ListView 
+                    x:Name="Teachers" 
+                    ItemsSource="{Binding teachers}"
+                    BorderThickness="0"
+                    Background="Transparent">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="auto" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
+                            <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Patronymic}"/>
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+            </ScrollViewer>
+            <Button Visibility="Visible"
+                    Margin="2"
+                    x:Name="AddCountryBtn"
+                    Content="Добавить Учителя" 
+                    Click="NewTeacherToList_Add"
+                    FontSize="18"/>
+
+            <Button Visibility="Visible"
+                    Margin="2"
+                    x:Name="DelCountryBtn" 
+                    Content="Удалить учителя"  
+
+                    FontSize="18"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -23,17 +23,30 @@ namespace SchoolWhiteWings.Pages
     {
         private DataBase.Section currentSection { get; set; }
         private DataBase.Teacher _teacher { get; set; }
-        private List<Cabinet> cabinets { get; set; }    
+        private List<Cabinet> cabinets { get; set; } 
+        private List<Teacher> _teachers { get; set; }
+        private List<TeacherForSection> _tfs { get; set; }
+
         public AddEditSectionPage(DataBase.Section section, DataBase.Teacher teacher)
         {
             InitializeComponent();
 
             _teacher = teacher;
             currentSection = section;
+
             cabinets = MainWindow.db.Cabinet.ToList();
+            _tfs = MainWindow.db.TeacherForSection.Where(t => t.SectionId == currentSection.Id && 
+                                                              t.IsDeleted == false).ToList();
+
+            _teachers = new List<Teacher>();
+            foreach (var a in _tfs)
+            {
+                _teachers.Add(a.Teacher);
+            }
 
             CabinetCB.ItemsSource = cabinets;
-            this.DataContext = currentSection;
+            Teachers.ItemsSource = _teachers;
+            this.DataContext = this;
         }
 
         private void SaveSectionBtn_Click(object sender, RoutedEventArgs e)
@@ -69,5 +82,29 @@ namespace SchoolWhiteWings.Pages
         {
             NavigationService.Navigate(new AllSectionPage(_teacher));
         }
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
+        }
+
+        private void NewTeacherToList_Add(object sender, RoutedEventArgs e)
+        {
+            TeacherChooseListWindow window = new TeacherChooseListWindow();
+            window.ShowDialog();
+            this._teacher = window._tempTeacher;
+
+            TeacherForSection temp = new TeacherForSection();
+            temp.TeacherId = _teacher.Id;
+            temp.SectionId = currentSection.Id;
+            temp.IsDeleted = false;
+
+            MainWindow.db.TeacherForSection.Add(temp);
+            MainWindow.db.SaveChanges();
+
+            NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
+        }
+
     }
 }
