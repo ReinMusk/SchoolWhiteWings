@@ -28,11 +28,11 @@
                   Grid.RowSpan="4" SelectionChanged="lvLessons_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Название секции" Width="130" DisplayMemberBinding="{Binding Section.Name}"/>
-                    <GridViewColumn Header="Начало" Width="80" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
-                    <GridViewColumn Header="Конец" Width="80" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
-                    <GridViewColumn Header="Занятие было" Width="80" DisplayMemberBinding="{Binding LessonIsBe}"/>
+                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Название секции" Width="auto" DisplayMemberBinding="{Binding Section.Name}"/>
+                    <GridViewColumn Header="Начало" Width="auto" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
+                    <GridViewColumn Header="Конец" Width="auto" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
+                    <GridViewColumn Header="Занятие было" Width="auto" DisplayMemberBinding="{Binding LessonIsBe}"/>
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

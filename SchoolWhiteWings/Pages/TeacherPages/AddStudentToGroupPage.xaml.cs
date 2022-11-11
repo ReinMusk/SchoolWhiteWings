@@ -58,7 +58,7 @@ namespace SchoolWhiteWings
 
             if (tempStudent != null)
             {
-                var result = MessageBox.Show("Вы точно хотите добавить студента "
+                var result = MessageBox.Show("Вы хотите добавить студента "
                     + tempStudent.FirstName + " " + tempStudent.LastName + " в группу номер " + group.Id,
                     "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
