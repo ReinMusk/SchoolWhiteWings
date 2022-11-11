@@ -18,10 +18,12 @@ namespace SchoolWhiteWings
 {
     public partial class AdminStartPage : Page
     {
+        private DataBase.Teacher _tempTeacher;
         public AdminStartPage(Teacher teacher)
         {
             InitializeComponent();
             
+            _tempTeacher = teacher;
             UserNameBlock.Text = $"{teacher.FirstName} {teacher.LastName}"; 
         }
 
@@ -33,6 +35,11 @@ namespace SchoolWhiteWings
         private void SectionPage_Opening(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TeacherList_Opening(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminTeacherListPage(_tempTeacher));
         }
 
     }

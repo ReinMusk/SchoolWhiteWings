@@ -1,0 +1,59 @@
+﻿<Page x:Class="SchoolWhiteWings.AdminTeacherListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolWhiteWings"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="1200"
+      Title="AdminTeacherListPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Button
+            x:Name="BackButton"
+            Margin="20"
+            Content="Назад"
+            FontSize="30"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Click="PreviousPage_Opening"/>
+         
+        <Button
+            x:Name="AddNewTeacherButton"
+            Grid.Column="3"
+            Grid.Row="0"
+            Margin="20"
+            Content="Добавить учителя"
+            FontSize="30"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Click="TeacherCreatePageOpening"/>
+         
+        <ListView x:Name="TeacherList" 
+                  ItemsSource="{Binding teacherList}"
+                  Grid.Column="0"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="4">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Patronymic}"/>
+                    <GridViewColumn Header="Специальность" Width="auto" DisplayMemberBinding="{Binding Speciality}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>
