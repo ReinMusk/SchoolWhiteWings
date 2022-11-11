@@ -28,12 +28,12 @@
                   Grid.RowSpan="4">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Название занятия" Width="130" DisplayMemberBinding="{Binding Lesson.Section.Name}"/>
-                    <GridViewColumn Header="Имя студента" Width="130" DisplayMemberBinding="{Binding Student.FirstName}"/>
-                    <GridViewColumn Header="Фамилия" Width="130" DisplayMemberBinding="{Binding Student.LastName}"/>
-                    <GridViewColumn Header="Отчество" Width="130" DisplayMemberBinding="{Binding Student.Patronymic}"/>
-                    <GridViewColumn Header="Студент был" Width="80" DisplayMemberBinding="{Binding StudentIsBe}"/>
+                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Название занятия" Width="auto" DisplayMemberBinding="{Binding Lesson.Section.Name}"/>
+                    <GridViewColumn Header="Имя студента" Width="auto" DisplayMemberBinding="{Binding Student.FirstName}"/>
+                    <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding Student.LastName}"/>
+                    <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Student.Patronymic}"/>
+                    <GridViewColumn Header="Студент был" Width="auto" DisplayMemberBinding="{Binding StudentIsBe}"/>
                 </GridView>
             </ListView.View>
         </ListView>

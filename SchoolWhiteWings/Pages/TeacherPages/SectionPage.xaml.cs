@@ -23,12 +23,13 @@ namespace SchoolWhiteWings
     public partial class SectionPage : Page
     {
         public Group group { get; set; }
+        public Teacher teacher { get; set; }
         public List<GroupStudent> students { get; set; }
-        public SectionPage(Group oldGroup)
+        public SectionPage(Group oldGroup, Teacher oldTeacher)
         {
             InitializeComponent();
             group = oldGroup;
-
+            teacher = oldTeacher;
             students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id).ToList();
 
             this.DataContext = this;
@@ -36,7 +37,7 @@ namespace SchoolWhiteWings
 
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new SectionGroupsPage(group.Section, teacher));
         }
 
         private void ButtonDel(object sender, RoutedEventArgs e)
@@ -63,7 +64,7 @@ namespace SchoolWhiteWings
 
         private void ButtonAdd(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddStudentToGroupPage(group));
+            NavigationService.Navigate(new AddStudentToGroupPage(group, teacher));
         }
     }
 }
