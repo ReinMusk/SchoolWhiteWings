@@ -37,14 +37,14 @@ namespace SchoolWhiteWings
 
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new TeacherStartPage(teacher));
         }
 
         private void SectionsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var section = (SectionsLV.SelectedItem as TeacherForSection).Section;
 
-            NavigationService.Navigate(new SectionGroupsPage(section));
+            NavigationService.Navigate(new SectionGroupsPage(section, teacher));
         }
     }
 }
