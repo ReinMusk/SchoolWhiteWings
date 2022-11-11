@@ -26,7 +26,7 @@ namespace SchoolWhiteWings
         public AllSectionPage(DataBase.Teacher teacher)
         {
             InitializeComponent();
-            sections = MainWindow.db.Section.ToList();
+            sections = MainWindow.db.Section.Where(a => a.isDeleted == false).ToList();
 
             _teacher = teacher;
             SectionLV.ItemsSource = sections;

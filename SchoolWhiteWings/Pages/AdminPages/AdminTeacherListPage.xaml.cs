@@ -24,7 +24,7 @@ namespace SchoolWhiteWings
             InitializeComponent();
 
             _tempTeacher = teacher;
-            teacherList = MainWindow.db.Teacher.ToList();
+            teacherList = MainWindow.db.Teacher.Where(a => a.isDeleted == false).ToList();
             this.DataContext = this;
         }
 

@@ -46,13 +46,14 @@ namespace SchoolWhiteWings.Pages
 
             CabinetCB.ItemsSource = cabinets;
             Teachers.ItemsSource = _teachers;
-            this.DataContext = this;
+            this.DataContext = currentSection;
         }
 
         private void SaveSectionBtn_Click(object sender, RoutedEventArgs e)
         {
             currentSection.Name = SectionNameTB.Text;
             currentSection.CabinetId = (CabinetCB.SelectedItem as Cabinet).Id;
+            currentSection.isDeleted = false;
 
             if (MainWindow.db.Section.FirstOrDefault(a => a.Id == currentSection.Id) == null)
                 MainWindow.db.Section.Add(currentSection);
@@ -72,7 +73,8 @@ namespace SchoolWhiteWings.Pages
                     MessageBoxImage.Warning);
                 if (result == MessageBoxResult.No)
                     return;
-                MainWindow.db.Section.Remove(currentSection);
+                currentSection.isDeleted = true;
+                MainWindow.db.Section.SingleOrDefault(a => a.Id == currentSection.Id);
                 MainWindow.db.SaveChanges();
 
                 NavigationService.Navigate(new AllSectionPage(_teacher));

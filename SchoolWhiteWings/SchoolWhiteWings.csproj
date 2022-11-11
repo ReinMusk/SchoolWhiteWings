@@ -67,18 +67,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataBase\sysdiagrams.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TeacherPages\AddStudentToGroupPage.xaml.cs">
-      <DependentUpon>AddStudentToGroupPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AdminPages\AdminNewTeacherAddPage.xaml.cs">
-      <DependentUpon>AdminNewTeacherAddPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AdminPages\AllSectionPage.xaml.cs">
-      <DependentUpon>AllSectionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DataBase\Cabinet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -112,6 +100,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\Section.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Student.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Teacher.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TeacherForSection.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeacherPages\AddStudentToGroupPage.xaml.cs">
+      <DependentUpon>AddStudentToGroupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminNewTeacherAddPage.xaml.cs">
+      <DependentUpon>AdminNewTeacherAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AllSectionPage.xaml.cs">
+      <DependentUpon>AllSectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdminPages\AddEditSectionPage.xaml.cs">
       <DependentUpon>AddEditSectionPage.xaml</DependentUpon>
     </Compile>
@@ -130,20 +139,8 @@
     <Compile Include="Pages\TeacherPages\TeacherStartPage.xaml.cs">
       <DependentUpon>TeacherStartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Section.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\TeacherPages\SectionTablePage.xaml.cs">
       <DependentUpon>SectionTablePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Student.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Teacher.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\TeacherForSection.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeacherPages\SectionPage.xaml.cs">
       <DependentUpon>SectionPage.xaml</DependentUpon>
@@ -270,7 +267,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="DataBase\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -282,6 +278,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\Images\logoWithText.png" />
     <Resource Include="Resources\Images\icon.ico" />
   </ItemGroup>
