@@ -106,5 +106,15 @@ namespace SchoolWhiteWings.Pages
             NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
         }
 
+        private void TeacherFromSection_Delete(object sender, RoutedEventArgs e)
+        {
+            DataBase.TeacherForSection tempRecord = _tfs.Where(t => t.TeacherId == (Teachers.SelectedItem as Teacher).Id).FirstOrDefault();
+            tempRecord.IsDeleted = true;
+            MainWindow.db.TeacherForSection.FirstOrDefault();
+            MainWindow.db.SaveChanges();
+
+            NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
+        }
+
     }
 }

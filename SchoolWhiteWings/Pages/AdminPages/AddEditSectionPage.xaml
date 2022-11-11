@@ -121,7 +121,7 @@
                     Margin="2"
                     x:Name="DelCountryBtn" 
                     Content="Удалить учителя"  
-
+                    Click="TeacherFromSection_Delete"
                     FontSize="18"/>
         </StackPanel>
     </Grid>
