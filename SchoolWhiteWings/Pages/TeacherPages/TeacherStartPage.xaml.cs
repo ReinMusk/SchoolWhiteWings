@@ -1,4 +1,5 @@
 ﻿using SchoolWhiteWings.DataBase;
+using SchoolWhiteWings.Pages.TeacherPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace SchoolWhiteWings
 
         private void ToLessonTable_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new TeacherLessonsPage(teacher));
         }
     }
 }
