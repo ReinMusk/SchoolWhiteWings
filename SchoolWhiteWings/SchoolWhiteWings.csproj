@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TeacherPages\AddStudentToGroupPage.xaml.cs">
       <DependentUpon>AddStudentToGroupPage.xaml</DependentUpon>
     </Compile>

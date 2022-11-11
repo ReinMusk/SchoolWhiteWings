@@ -30,7 +30,7 @@ namespace SchoolWhiteWings
             InitializeComponent();
             group = oldGroup;
             teacher = oldTeacher;
-            students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id).ToList();
+            students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id && x.isDeleted != true).ToList();
 
             this.DataContext = this;
         }
@@ -49,10 +49,10 @@ namespace SchoolWhiteWings
                 var result = MessageBox.Show("Вы точно хотите удалить студента?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    MainWindow.db.GroupStudent.Remove(selectedStudent);
+                    selectedStudent.isDeleted = true;
                     MainWindow.db.SaveChanges();
 
-                    students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id).ToList();
+                    students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id && x.isDeleted != true).ToList();
                     StudentsLV.ItemsSource = students;
                 }
             }
