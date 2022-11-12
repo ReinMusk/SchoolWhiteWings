@@ -27,7 +27,7 @@ namespace SchoolWhiteWings
             
             _tempTeacher = new DataBase.Teacher();
 
-            teacherList = MainWindow.db.Teacher.ToList();
+            teacherList = MainWindow.db.Teacher.Where(t => t.isDeleted != true && t.IsAdmin != true).ToList();
             this.DataContext = this;
         }
 

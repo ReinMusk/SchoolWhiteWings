@@ -62,7 +62,7 @@
             Grid.Row="2"
             Grid.Column="2"
             Margin="10"
-            Content="Добавить нового учителя"
+            Content="Преподавательский состав"
             FontSize="26"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
