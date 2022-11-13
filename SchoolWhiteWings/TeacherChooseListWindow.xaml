@@ -1,0 +1,27 @@
+﻿<Window x:Class="SchoolWhiteWings.TeacherChooseListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolWhiteWings"
+        mc:Ignorable="d"
+        Title="Выбор учителя" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="TeacherList" 
+                  ItemsSource="{Binding teacherList}"
+                  Grid.Column="0"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="4"
+                  SelectionChanged="TeacherList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Patronymic}"/>
+                    <GridViewColumn Header="Специальность" Width="auto" DisplayMemberBinding="{Binding Speciality}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

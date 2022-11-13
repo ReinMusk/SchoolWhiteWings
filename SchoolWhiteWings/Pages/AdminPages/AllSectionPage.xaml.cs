@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace SchoolWhiteWings
 {
-    /// <summary>
-    /// Interaction logic for AllSectionPage.xaml
-    /// </summary>
     public partial class AllSectionPage : Page
     {
         private List<DataBase.Section> sections { get; set; }
@@ -26,7 +23,7 @@ namespace SchoolWhiteWings
         public AllSectionPage(DataBase.Teacher teacher)
         {
             InitializeComponent();
-            sections = MainWindow.db.Section.ToList();
+            sections = MainWindow.db.Section.Where(a => a.isDeleted != true).ToList();
 
             _teacher = teacher;
             SectionLV.ItemsSource = sections;

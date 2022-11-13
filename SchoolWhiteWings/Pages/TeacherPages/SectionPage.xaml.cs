@@ -23,20 +23,21 @@ namespace SchoolWhiteWings
     public partial class SectionPage : Page
     {
         public Group group { get; set; }
+        public Teacher teacher { get; set; }
         public List<GroupStudent> students { get; set; }
-        public SectionPage(Group oldGroup)
+        public SectionPage(Group oldGroup, Teacher oldTeacher)
         {
             InitializeComponent();
             group = oldGroup;
-
-            students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id).ToList();
+            teacher = oldTeacher;
+            students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id && x.isDeleted != true).ToList();
 
             this.DataContext = this;
         }
 
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new SectionGroupsPage(group.Section, teacher));
         }
 
         private void ButtonDel(object sender, RoutedEventArgs e)
@@ -48,10 +49,10 @@ namespace SchoolWhiteWings
                 var result = MessageBox.Show("Вы точно хотите удалить студента?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    MainWindow.db.GroupStudent.Remove(selectedStudent);
+                    selectedStudent.isDeleted = true;
                     MainWindow.db.SaveChanges();
 
-                    students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id).ToList();
+                    students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id && x.isDeleted != true).ToList();
                     StudentsLV.ItemsSource = students;
                 }
             }
@@ -63,7 +64,7 @@ namespace SchoolWhiteWings
 
         private void ButtonAdd(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddStudentToGroupPage(group));
+            NavigationService.Navigate(new AddStudentToGroupPage(group, teacher));
         }
     }
 }

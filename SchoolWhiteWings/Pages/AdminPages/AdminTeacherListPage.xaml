@@ -39,7 +39,19 @@
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             Click="TeacherCreatePageOpening"/>
-         
+        
+        <Button
+            x:Name="DeleteTeacherButton"
+            Grid.Column="2"
+            Grid.Row="0"
+            Margin="20"
+            Content="Удалить учителя"
+            FontSize="30"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Click="TeacherDelete"/>
+        
+        
         <ListView x:Name="TeacherList" 
                   ItemsSource="{Binding teacherList}"
                   Grid.Column="0"

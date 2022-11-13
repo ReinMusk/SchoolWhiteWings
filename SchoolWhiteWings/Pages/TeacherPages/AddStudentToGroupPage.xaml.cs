@@ -22,12 +22,12 @@ namespace SchoolWhiteWings
     public partial class AddStudentToGroupPage : Page
     {
         public static List<Student> students { get; set; }
-
+        public Teacher teacher { get; set; }
         public Group group { get; set; }
-        public AddStudentToGroupPage(Group oldGroup)
+        public AddStudentToGroupPage(Group oldGroup,Teacher oldTeacher)
         {
             InitializeComponent();
-
+            teacher = oldTeacher;
             group = oldGroup;
 
             students = MainWindow.db.Student.ToList();
@@ -37,7 +37,7 @@ namespace SchoolWhiteWings
 
         private void ButtonBack(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new SectionPage(group, teacher));
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -58,7 +58,7 @@ namespace SchoolWhiteWings
 
             if (tempStudent != null)
             {
-                var result = MessageBox.Show("Вы точно хотите добавить студента "
+                var result = MessageBox.Show("Вы хотите добавить студента "
                     + tempStudent.FirstName + " " + tempStudent.LastName + " в группу номер " + group.Id,
                     "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
@@ -73,7 +73,7 @@ namespace SchoolWhiteWings
                     MainWindow.db.GroupStudent.Add(groupStudent);
                     MainWindow.db.SaveChanges();
 
-                    NavigationService.GoBack();
+                    NavigationService.Navigate(new SectionPage(group, teacher));
                 }
             }
             else

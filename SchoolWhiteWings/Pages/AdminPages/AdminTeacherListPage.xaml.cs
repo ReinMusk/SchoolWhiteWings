@@ -24,7 +24,7 @@ namespace SchoolWhiteWings
             InitializeComponent();
 
             _tempTeacher = teacher;
-            teacherList = MainWindow.db.Teacher.ToList();
+            teacherList = MainWindow.db.Teacher.Where(a => a.isDeleted != true && a.IsAdmin != true).ToList();
             this.DataContext = this;
         }
 
@@ -36,6 +36,26 @@ namespace SchoolWhiteWings
         private void TeacherCreatePageOpening(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AdminNewTeacherAddPage(_tempTeacher));
+        }
+        private void TeacherDelete(object sender, RoutedEventArgs e)
+        {
+            if (TeacherList.SelectedItem != null)
+            {
+                MessageBoxResult mes = MessageBox.Show("Вы точно хотите удалить этого учителя?", 
+                    "Удаление", MessageBoxButton.OK);
+                if (mes == MessageBoxResult.OK)
+                {
+                    var temp = TeacherList.SelectedItem as DataBase.Teacher;
+                    temp.isDeleted = true;
+                    MainWindow.db.Teacher.FirstOrDefault();
+                    MainWindow.db.SaveChanges();
+                    NavigationService.Navigate(new AdminTeacherListPage(_tempTeacher));
+                }
+            }    
+            else
+            {
+                MessageBox.Show("Выберите учителя, которого хотите удалить");
+            }
         }
 
     }
