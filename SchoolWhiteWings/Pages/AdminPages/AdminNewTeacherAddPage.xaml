@@ -92,7 +92,7 @@
             Margin="20"
             Grid.Column="1"
             Grid.Row="5"
-            Content="Создать"
+            Content="Сохранить"
             FontSize="30"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
