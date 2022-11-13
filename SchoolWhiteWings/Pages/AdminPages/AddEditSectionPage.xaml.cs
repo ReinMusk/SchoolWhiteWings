@@ -31,6 +31,11 @@ namespace SchoolWhiteWings.Pages
         {
             InitializeComponent();
 
+            if (section == null)
+            {
+                TeacherAddPanel.Visibility = Visibility.Hidden;
+            }
+
             _teacher = teacher;
             currentSection = section;
 
@@ -102,10 +107,16 @@ namespace SchoolWhiteWings.Pages
             temp.SectionId = currentSection.Id;
             temp.IsDeleted = false;
 
-            MainWindow.db.TeacherForSection.Add(temp);
-            MainWindow.db.SaveChanges();
-
-            NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
+            if (temp.SectionId != 0)
+            {
+                MainWindow.db.TeacherForSection.Add(temp);
+                MainWindow.db.SaveChanges();
+                NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
+            }
+            else
+            {
+                MessageBox.Show("Перед добавлением преподавателей нужно завершить создание кружка");
+            }
         }
 
         private void TeacherFromSection_Delete(object sender, RoutedEventArgs e)
