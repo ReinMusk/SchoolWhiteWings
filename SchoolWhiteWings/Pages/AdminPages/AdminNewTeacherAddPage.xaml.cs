@@ -21,10 +21,12 @@ namespace SchoolWhiteWings
     public partial class AdminNewTeacherAddPage : Page
     {
         private DataBase.Teacher _teacher;
+        private DataBase.Teacher _loggedTeacher;
         public AdminNewTeacherAddPage(DataBase.Teacher teacher)
         {
             InitializeComponent();
             _teacher = new DataBase.Teacher();
+            _loggedTeacher = teacher;
         }
 
         private void ToPreviousPage_Back(object sender, RoutedEventArgs e)
@@ -36,7 +38,6 @@ namespace SchoolWhiteWings
         {
             if (FirstnameEnter.Text != "" &&
                 LastnameEnter.Text != "" &&
-                PatronymicEnter.Text != "" &&
                 SpecialityEnter.Text != "")
             {
                 if (TeacherPasswordEnter.Text != "")
@@ -53,7 +54,7 @@ namespace SchoolWhiteWings
 
                     MessageBox.Show($"{_teacher.LastName} {_teacher.Patronymic} успешно добавлен в базу как учитель");
 
-                    NavigationService.Navigate(new AdminTeacherListPage(_teacher));
+                    NavigationService.Navigate(new AdminTeacherListPage(_loggedTeacher));
                 }
                 else
                 {
@@ -65,6 +66,11 @@ namespace SchoolWhiteWings
                 MessageBox.Show("Заполните все поля данными");
             }
             
+        }
+
+        private void TBRusLetters_Check(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !(Char.IsLetter(e.Text, 0));
         }
 
     }
