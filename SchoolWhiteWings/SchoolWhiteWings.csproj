@@ -100,18 +100,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Section.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Student.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\Teacher.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase\TeacherForSection.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\TeacherPages\AddStudentToGroupPage.xaml.cs">
       <DependentUpon>AddStudentToGroupPage.xaml</DependentUpon>
     </Compile>
@@ -148,8 +136,23 @@
     <Compile Include="Pages\TeacherPages\SectionGroupsPage.xaml.cs">
       <DependentUpon>SectionGroupsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\Section.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Student.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Teacher.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="TeacherChooseListWindow.xaml.cs">
       <DependentUpon>TeacherChooseListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TeacherForSection.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Page Include="Pages\TeacherPages\AddStudentToGroupPage.xaml">
       <SubType>Designer</SubType>
@@ -268,6 +271,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\logoWithText.png" />
+    <Resource Include="Resources\Images\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DataBase\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -278,10 +285,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Images\logoWithText.png" />
-    <Resource Include="Resources\Images\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
