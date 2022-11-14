@@ -28,7 +28,7 @@ namespace SchoolWhiteWings
             InitializeComponent();
             teacher = oldTeacher;
 
-            UserNameBlock.Text = teacher.FirstName + " " + teacher.LastName;
+            UserNameBlock.Text = $" Преподаватель: {teacher.FirstName} { teacher.LastName}";
         }
 
         private void ToSectionTable_Click(object sender, RoutedEventArgs e)

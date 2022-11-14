@@ -37,11 +37,6 @@ namespace SchoolWhiteWings.Pages.TeacherPages
             this.DataContext = this;
         }
 
-        private void ButtonBack(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
-
         private void lvLessons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var lesson = lvLessons.SelectedItem as Lesson;
