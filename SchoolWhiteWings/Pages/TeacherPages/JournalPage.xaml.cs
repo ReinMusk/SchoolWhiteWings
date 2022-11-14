@@ -37,5 +37,10 @@ namespace SchoolWhiteWings.Pages.TeacherPages
         {
             NavigationService.GoBack();
         }
+
+        private void cbStudentIsBe_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.db.SaveChanges();
+        }
     }
 }

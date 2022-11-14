@@ -32,11 +32,10 @@
                     <GridViewColumn Header="Название секции" Width="auto" DisplayMemberBinding="{Binding Section.Name}"/>
                     <GridViewColumn Header="Начало" Width="auto" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
                     <GridViewColumn Header="Конец" Width="auto" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
-                    <GridViewColumn Header="Занятие было" Width="auto" DisplayMemberBinding="{Binding LessonIsBe}"/>
-                    <GridViewColumn>
+                    <GridViewColumn Header="Занятие было" Width="auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="cbLessonIsBe" Margin="0" VerticalAlignment="Center" IsChecked="{Binding LessonIsBe}" Checked="cbLessonIsBe_Checked" Unchecked="cbLessonIsBe_Checked"/>
+                                <CheckBox x:Name="cbLessonIsBe" Margin="0" IsChecked="{Binding LessonIsBe}" VerticalAlignment="Center" Click="cbLessonIsBe_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
