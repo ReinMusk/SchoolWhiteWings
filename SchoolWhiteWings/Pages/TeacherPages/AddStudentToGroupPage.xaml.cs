@@ -56,7 +56,7 @@ namespace SchoolWhiteWings
         {
             Student tempStudent = StudentsLV.SelectedItem as Student;
 
-            if (tempStudent != null)
+            if (tempStudent != null && group.GroupStudent.Count > 10)
             {
                 foreach (var item in group.GroupStudent)
                 {
