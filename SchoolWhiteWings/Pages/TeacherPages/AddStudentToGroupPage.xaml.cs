@@ -58,6 +58,15 @@ namespace SchoolWhiteWings
 
             if (tempStudent != null)
             {
+                foreach (var item in group.GroupStudent)
+                {
+                    if (item.Student == tempStudent)
+                    {
+                        MessageBox.Show("Этот студент уже есть в кружке", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+               
                 var result = MessageBox.Show("Вы хотите добавить студента "
                     + tempStudent.FirstName + " " + tempStudent.LastName + " в группу номер " + group.Id,
                     "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
