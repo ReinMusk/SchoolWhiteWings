@@ -23,11 +23,39 @@ namespace SchoolWhiteWings
     public partial class MainWindow : Window
     {
         internal static SchoolWhiteWingsEntities db = new SchoolWhiteWingsEntities(); //бд коннектион блиа
+        public string pageTitle { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-
+            Log_frame.Navigated += Frame_Navigated;
             Log_frame.Content = new AuthPage();
+        }
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        {
+            var pageContent = Log_frame.Content;
+            pageTitle = (pageContent as Page).Title;
+            tbTitle.Text = pageTitle;
+
+            if (pageContent is AuthPage)
+                spButtons.Visibility = Visibility.Hidden;
+            else
+            {
+                spButtons.Visibility = Visibility.Visible;
+                btnGoForward.Visibility = Visibility.Visible;
+                btnGoBack.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (Log_frame.CanGoBack)
+                Log_frame.GoBack();
+        }
+
+        private void btnGoForward_Click(object sender, RoutedEventArgs e)
+        {
+            if (Log_frame.CanGoForward)
+                Log_frame.GoForward();
         }
     }
 }

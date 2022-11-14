@@ -56,7 +56,8 @@
                   ItemsSource="{Binding teacherList}"
                   Grid.Column="0"
                   Grid.Row="1"
-                  Grid.ColumnSpan="4">
+                  Grid.ColumnSpan="4"
+                  SelectionChanged="Teacher_Redact">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>

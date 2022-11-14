@@ -9,23 +9,16 @@
       Title="TeacherLessonsPage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <ListView x:Name="lvLessons" 
                   ItemsSource="{Binding lessons}"
-                  Grid.Column="0"
-                  Grid.ColumnSpan="3" 
-                  Grid.Row="1"
-                  Grid.RowSpan="4" SelectionChanged="lvLessons_SelectionChanged">
+                  SelectionChanged="lvLessons_SelectionChanged" HorizontalAlignment="Center"
+                  Margin="0 60 0 0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
@@ -42,7 +35,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
-        <Button Grid.Column="0" Grid.Row="0" Content="Назад" Click="ButtonBack"/>
     </Grid>
 </Page>

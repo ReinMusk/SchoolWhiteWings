@@ -58,5 +58,9 @@ namespace SchoolWhiteWings
             }
         }
 
+        private void Teacher_Redact(object sender, SelectionChangedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminNewTeacherAddPage(_tempTeacher, TeacherList.SelectedItem as DataBase.Teacher));
+        }
     }
 }

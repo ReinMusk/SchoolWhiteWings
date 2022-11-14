@@ -2,18 +2,31 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SchoolWhiteWings"
         mc:Ignorable="d"
-        Title="Школа белые крылья" Height="760" Width="1280">
+        WindowState="Maximized"
+        Title="Школа белые крылья" Height="760" Width="1280" Background="#ECEBE9">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
-            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <Frame Background="#FAB7A4"/>
-        <Image Source="../Resources/Images/logoWithText.png"
-               HorizontalAlignment="Left" Width="100"/>
+
+        <Grid Background="#D1C8B8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/Images/logoWithText.png" HorizontalAlignment="Left" Width="200" Margin="10"/>
+            <TextBlock x:Name="tbTitle" Text="{Binding pageTitle}" Grid.Column="1" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel x:Name="spButtons" Grid.ColumnSpan="3" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="btnGoBack" Content="Назад" Height="50" Width="150" Margin="10 0" FontSize="20" Click="btnGoBack_Click"/>
+                <Button x:Name="btnGoForward" Content="Вперед" Height="50" Width="150" Margin="10 0" FontSize="20" Click="btnGoForward_Click"/>
+            </StackPanel>
+        </Grid>
 
         <Frame Grid.Row="1" x:Name="Log_frame" NavigationUIVisibility="Hidden"/>
     </Grid>
