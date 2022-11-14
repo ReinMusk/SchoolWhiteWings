@@ -26,7 +26,6 @@ namespace SchoolWhiteWings.Pages.AuthRegPages
             InitializeComponent();
         }
 
-
         private void SignInBtn_Click(object sender, RoutedEventArgs e)
         {
             if(LoginTb.Text == "" || PasswordCb.Password == "")

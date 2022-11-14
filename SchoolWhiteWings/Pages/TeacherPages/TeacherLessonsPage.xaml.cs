@@ -38,7 +38,7 @@ namespace SchoolWhiteWings.Pages.TeacherPages
         }
 
         private void ButtonBack(object sender, RoutedEventArgs e)
-        {
+            {
             NavigationService.GoBack();
         }
 
@@ -49,9 +49,9 @@ namespace SchoolWhiteWings.Pages.TeacherPages
             NavigationService.Navigate(new JournalPage(lesson));
         }
 
-        private void cbLessonIsBe_Checked(object sender, RoutedEventArgs e)
+        private void cbLessonIsBe_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.db.SaveChanges();
         }
     }
 }

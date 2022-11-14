@@ -33,7 +33,13 @@
                     <GridViewColumn Header="Имя студента" Width="auto" DisplayMemberBinding="{Binding Student.FirstName}"/>
                     <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding Student.LastName}"/>
                     <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Student.Patronymic}"/>
-                    <GridViewColumn Header="Студент был" Width="auto" DisplayMemberBinding="{Binding StudentIsBe}"/>
+                    <GridViewColumn Header="Студент был" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="cbStudentIsBe" Margin="0" IsChecked="{Binding StudentIsBe}" VerticalAlignment="Center" Click="cbStudentIsBe_Click"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

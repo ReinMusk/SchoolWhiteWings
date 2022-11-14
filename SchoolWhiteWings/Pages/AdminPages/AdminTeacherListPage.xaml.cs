@@ -24,7 +24,7 @@ namespace SchoolWhiteWings
             InitializeComponent();
 
             _tempTeacher = teacher;
-            teacherList = MainWindow.db.Teacher.Where(a => a.isDeleted != true).ToList();
+            teacherList = MainWindow.db.Teacher.Where(a => a.isDeleted != true && a.IsAdmin != true).ToList();
             this.DataContext = this;
         }
 
@@ -58,5 +58,9 @@ namespace SchoolWhiteWings
             }
         }
 
+        private void Teacher_Redact(object sender, SelectionChangedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminNewTeacherAddPage(_tempTeacher, TeacherList.SelectedItem as DataBase.Teacher));
+        }
     }
 }

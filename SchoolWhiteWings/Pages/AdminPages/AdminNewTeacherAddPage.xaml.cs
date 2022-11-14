@@ -21,10 +21,25 @@ namespace SchoolWhiteWings
     public partial class AdminNewTeacherAddPage : Page
     {
         private DataBase.Teacher _teacher;
+        private DataBase.Teacher _loggedTeacher;
         public AdminNewTeacherAddPage(DataBase.Teacher teacher)
         {
             InitializeComponent();
             _teacher = new DataBase.Teacher();
+            _loggedTeacher = teacher;
+        }
+
+        public AdminNewTeacherAddPage(DataBase.Teacher loggedTeacher, DataBase.Teacher teacherForRedact)
+        {
+            InitializeComponent();
+            _loggedTeacher = loggedTeacher;
+            _teacher = teacherForRedact;
+
+            FirstnameEnter.Text = teacherForRedact.FirstName;
+            LastnameEnter.Text = teacherForRedact.LastName;
+            PatronymicEnter.Text = teacherForRedact.Patronymic;
+            SpecialityEnter.Text = teacherForRedact.Speciality;
+            TeacherPasswordEnter.Text = teacherForRedact.Password;
         }
 
         private void ToPreviousPage_Back(object sender, RoutedEventArgs e)
@@ -36,7 +51,6 @@ namespace SchoolWhiteWings
         {
             if (FirstnameEnter.Text != "" &&
                 LastnameEnter.Text != "" &&
-                PatronymicEnter.Text != "" &&
                 SpecialityEnter.Text != "")
             {
                 if (TeacherPasswordEnter.Text != "")
@@ -48,12 +62,23 @@ namespace SchoolWhiteWings
                     _teacher.Password = TeacherPasswordEnter.Text;
                     _teacher.IsAdmin = false;
 
-                    MainWindow.db.Teacher.Add(_teacher);
-                    MainWindow.db.SaveChanges();
+                    if(_teacher.Id == 0)
+                    {
+                        MainWindow.db.Teacher.Add(_teacher);
+                        MainWindow.db.SaveChanges();
 
-                    MessageBox.Show($"{_teacher.LastName} {_teacher.Patronymic} успешно добавлен в базу как учитель");
+                        MessageBox.Show($"{_teacher.LastName} {_teacher.Patronymic} успешно добавлен в базу как учитель");
+                    }
+                    else
+                    {
+                        MainWindow.db.Teacher.FirstOrDefault();
+                        MainWindow.db.SaveChanges();
+                        MessageBox.Show($"Данные об учителе были успешно изменены");
 
-                    NavigationService.Navigate(new AdminTeacherListPage(_teacher));
+                    }
+
+
+                    NavigationService.Navigate(new AdminTeacherListPage(_loggedTeacher));
                 }
                 else
                 {
@@ -65,6 +90,11 @@ namespace SchoolWhiteWings
                 MessageBox.Show("Заполните все поля данными");
             }
             
+        }
+
+        private void TBRusLetters_Check(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !(Char.IsLetter(e.Text, 0));
         }
 
     }
