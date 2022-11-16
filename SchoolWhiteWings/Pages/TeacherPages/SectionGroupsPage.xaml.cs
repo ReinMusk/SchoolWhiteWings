@@ -44,5 +44,10 @@ namespace SchoolWhiteWings
         {
             NavigationService.Navigate(new SectionPage(GroupsLV.SelectedItem as Group, teacher));
         }
+
+        private void ButtonAdd(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddGroupPage(section, teacher));
+        }
     }
 }
