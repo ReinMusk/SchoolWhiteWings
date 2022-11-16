@@ -19,16 +19,19 @@ namespace SchoolWhiteWings
     public partial class AdminTimeTablePage : Page
     {
         public static List<Lesson> lessonList { get; set; }
-        public AdminTimeTablePage()
+        private DataBase.Teacher _teacher { get; set; }
+        public AdminTimeTablePage(DataBase.Teacher teacher)
         {
             InitializeComponent();
+            teacher = _teacher;
             lessonList = MainWindow.db.Lesson.ToList();
             this.DataContext = this;
         }
 
-        private void PreviousPage_Opening(object sender, RoutedEventArgs e)
+
+        private void NewLessonAdd_Open(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new AdminAddNewLesson());
         }
     }
 }

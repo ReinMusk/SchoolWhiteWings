@@ -90,6 +90,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\AdminPages\AdminAddNewLesson.xaml.cs">
+      <DependentUpon>AdminAddNewLesson.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TeacherPages\AddGroupPage.xaml.cs">
       <DependentUpon>AddGroupPage.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,10 @@
     <Compile Include="TeacherChooseListWindow.xaml.cs">
       <DependentUpon>TeacherChooseListWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\AdminPages\AdminAddNewLesson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\TeacherPages\AddGroupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
