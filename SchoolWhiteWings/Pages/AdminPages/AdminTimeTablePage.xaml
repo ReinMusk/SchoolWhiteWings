@@ -45,6 +45,17 @@
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             Click="NewLessonAdd_Open"/>
+        <Button
+            x:Name="BackButton"
+            Margin="20"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="5"
+            Content="На главную"
+            FontSize="30"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Click="BackButton_Click"/>
         
     </Grid>
 </Page>

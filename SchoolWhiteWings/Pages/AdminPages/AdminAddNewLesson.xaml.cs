@@ -18,12 +18,19 @@ namespace SchoolWhiteWings
     public partial class AdminAddNewLesson : Page
     {
         private static List<DataBase.Section> sectionList { get; set; }
-        public AdminAddNewLesson()
+        private static DataBase.Teacher _teacher { get; set; }
+        public AdminAddNewLesson(DataBase.Teacher teacher)
         {
             InitializeComponent();
 
+            _teacher = teacher;
+
             sectionList = MainWindow.db.Section.Where(s => s.isDeleted != true).ToList();
             secList.ItemsSource = sectionList;
+            timeOfBegining.Value = DateTime.Now;
+            timeOfBegining.Minimum = DateTime.Today;
+            //timeOfend.Minimum = DateTime.Today;
+            
         }
 
         private void CreateNewButton_Click(object sender, RoutedEventArgs e)
@@ -32,15 +39,34 @@ namespace SchoolWhiteWings
             if (secList.SelectedItem != null)
             {
                 les.Section = secList.SelectedItem as DataBase.Section;
-                //Двигать дальше по вложенным ифам
-                MainWindow.db.Lesson.Add(les);
-                MainWindow.db.SaveChanges();
-                NavigationService.GoBack();
+                if (timeOfBegining.Value != timeOfend.Value)
+                {
+                    les.DateTimeOfBeginning = timeOfBegining.Value;
+                    les.DateTimeOfEnding = timeOfend.Value;
+
+                    MainWindow.db.Lesson.Add(les);
+                    MainWindow.db.SaveChanges();
+                    NavigationService.Navigate(new AdminTimeTablePage(_teacher));
+                }
+                else
+                {
+                    MessageBox.Show("Выберите дату");
+                }
             }
             else
             {
                 MessageBox.Show("Выберите кружок");
             }
+        }
+
+        private void timeOfBegining_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            timeOfend.Value = timeOfBegining.Value;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminTimeTablePage(_teacher));
         }
     }
 }
