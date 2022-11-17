@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:local="clr-namespace:SchoolWhiteWings"
       mc:Ignorable="d" 
       d:DesignHeight="760" d:DesignWidth="1280"
@@ -15,6 +16,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -35,14 +37,21 @@
             VerticalAlignment="Center"
             FontSize="30"/>
         <TextBlock
-            Text="Время начала"
+            Text="Дата"
             Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="30"/>
+        
+        <TextBlock
+            Text="Время начала"
+            Grid.Row="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="30"/>
         <TextBlock
             Text="Время конца"
-            Grid.Row="2"
+            Grid.Row="3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="30"/>
@@ -58,7 +67,31 @@
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             Click="CreateNewButton_Click"/>
+
+        <DatePicker
+            x:Name="dpDate"
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="40"
+            FontSize="20"
+            FontFamily="20"/>
+
+        <xctk:TimePicker
+            x:Name="timeOfBegining"
+            Grid.Column="1"
+            Grid.Row="2"
+            Margin="40"
+            FontSize="20"
+            />
+        <xctk:TimePicker
+            x:Name="timeOfEnd"
+            Grid.Column="1"
+            Grid.Row="3"
+            Margin="40"
+            FontSize="20"
+            />
         
-        
+
+
     </Grid>
 </Page>
