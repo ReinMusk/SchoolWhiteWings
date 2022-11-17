@@ -29,7 +29,7 @@ namespace SchoolWhiteWings
 
         private void LessonTablePage_Opening(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminTimeTablePage());
+            NavigationService.Navigate(new AdminTimeTablePage(_tempTeacher));
         }
 
         private void SectionPage_Opening(object sender, RoutedEventArgs e)
