@@ -23,7 +23,7 @@ namespace SchoolWhiteWings
         public AdminTimeTablePage(DataBase.Teacher teacher)
         {
             InitializeComponent();
-            teacher = _teacher;
+            _teacher = teacher;
             lessonList = MainWindow.db.Lesson.ToList();
             this.DataContext = this;
         }
@@ -31,7 +31,12 @@ namespace SchoolWhiteWings
 
         private void NewLessonAdd_Open(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdminAddNewLesson());
+            NavigationService.Navigate(new AdminAddNewLesson(_teacher));
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminStartPage(_teacher));
         }
     }
 }
