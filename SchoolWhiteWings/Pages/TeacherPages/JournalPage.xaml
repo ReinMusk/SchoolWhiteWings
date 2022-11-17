@@ -25,31 +25,31 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>-->
-                    <GridViewColumn Header="Имя студента" Width="auto">
+                    <GridViewColumn Header="Имя" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Student.FirstName}"/>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Student.FirstName}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Фамилия" Width="auto">
+                    <GridViewColumn Header="Фамилия" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Student.LastName}"/>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Student.LastName}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Отчество" Width="auto">
+                    <GridViewColumn Header="Отчество" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Student.Patronymic}"/>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Student.Patronymic}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Студент был" Width="auto">
+                    <GridViewColumn Header="Присутствовал" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="cbStudentIsBe" Margin="0" IsChecked="{Binding StudentIsBe}" VerticalAlignment="Center" Click="cbStudentIsBe_Click">
+                                <CheckBox Margin="-10 10 0 10" x:Name="cbStudentIsBe" IsChecked="{Binding StudentIsBe}" VerticalAlignment="Center" Click="cbStudentIsBe_Click">
                                     <CheckBox.LayoutTransform>
                                         <ScaleTransform ScaleX="4" ScaleY="4"/>
                                     </CheckBox.LayoutTransform>

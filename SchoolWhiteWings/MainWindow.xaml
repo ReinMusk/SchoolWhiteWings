@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
             <Image Source="/Resources/Images/logoWithText.png" HorizontalAlignment="Left" Width="200" Margin="10"/>
             <TextBlock x:Name="tbTitle" Text="{Binding pageTitle}" Grid.Column="1" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button x:Name="btnGoOut" Grid.Column="2" Content="Выйти" Height="80" Width="250" Margin="10 0" FontSize="20" Click="btnGoOut_Click"/>
+            <Button x:Name="btnGoOut" Grid.Column="2" Content="Выйти" Height="80" Width="250" Margin="10 0" FontSize="30" Click="btnGoOut_Click"/>
         </Grid>
 
         <Frame Grid.Row="1" x:Name="Log_frame" NavigationUIVisibility="Hidden"/>

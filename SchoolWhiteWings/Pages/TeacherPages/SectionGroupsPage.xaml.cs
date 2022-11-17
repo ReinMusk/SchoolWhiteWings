@@ -31,7 +31,8 @@ namespace SchoolWhiteWings
             section = oldSection;
             teacher = oldTeacher;
             groups = MainWindow.db.Group.Where(x => x.SectionId == section.Id).ToList();
-
+            GroupsLV.ItemsSource = groups;
+            tbSection.Text = $" Кружок: {section.Name}";
             this.DataContext = this;
         }
 
@@ -47,7 +48,9 @@ namespace SchoolWhiteWings
 
         private void ButtonAdd(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddGroupPage(section, teacher));
+            AddGroupWindow window = new AddGroupWindow(section, teacher);
+            window.ShowDialog();
+            //NavigationService.Navigate(new AddGroupPage(section, teacher));
         }
     }
 }
