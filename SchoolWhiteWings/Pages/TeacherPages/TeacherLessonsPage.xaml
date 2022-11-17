@@ -17,21 +17,37 @@
 
         <ListView x:Name="lvLessons" 
                   ItemsSource="{Binding lessons}"
-                  SelectionChanged="lvLessons_SelectionChanged" HorizontalAlignment="Center"
-                  Margin="0 60 0 0">
+                  SelectionChanged="lvLessons_SelectionChanged" Grid.Row="1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Название секции" Width="auto" DisplayMemberBinding="{Binding Section.Name}"/>
-                    <GridViewColumn Header="Начало" Width="auto" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
-                    <GridViewColumn Header="Конец" Width="auto" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
-                    <GridViewColumn Header="Занятие было" Width="auto">
+                    <GridViewColumn  Header="Название" Width="500">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="cbLessonIsBe" Margin="0" IsChecked="{Binding LessonIsBe}" VerticalAlignment="Center" Click="cbLessonIsBe_Click"/>
+                                <TextBlock  Text="{Binding Section.Name}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    <GridViewColumn Header="Начало" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding DateTimeOfBeginning, StringFormat=d, ConverterCulture=ru-RU}"/>
+                                    <Run Text="{Binding DateTimeOfBeginning, StringFormat=t, ConverterCulture=ru-RU}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Конец" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding DateTimeOfEnding, StringFormat=d, ConverterCulture=ru-RU}"/>
+                                    <Run Text="{Binding DateTimeOfEnding, StringFormat=t, ConverterCulture=ru-RU}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Занятие было" Width="auto" DisplayMemberBinding="{Binding LessonIsBe}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -29,37 +29,67 @@
                 Margin="0 20 0 20"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"/>
-            
-            <Button
-                x:Name="ToLessonTable"
-                Grid.Column="2"
-                Content="Расписание занятий"
-                FontSize="30"
-                Height="70"
-                Width="300"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center" Click="ToLessonTable_Click"/>
 
             <Button
                 x:Name="ToSectionTable"
-                Grid.Column="3"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
                 Content="Список кружков"
                 FontSize="30"
                 Height="70"
-                Width="300"
+                Width="400"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center" Click="ToSectionTable_Click"/>
 
         </Grid>
 
 
-        <TextBlock
-            Grid.Row="1"
-            Grid.ColumnSpan="3"
-            FontSize="60"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Text="Добро пожаловать"/>
+        <ListView x:Name="lvLessons" 
+                  ItemsSource="{Binding lessons}"
+                  SelectionChanged="lvLessons_SelectionChanged" Grid.Row="1" Margin="0 50 0 0" HorizontalAlignment="Center">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Header="Название" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="0 10 0 10" Text="{Binding Section.Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Начало" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="0 10 0 10">
+                                    <Run Text="{Binding DateTimeOfBeginning, StringFormat=d, ConverterCulture=ru-RU}"/>
+                                    <Run Text="{Binding DateTimeOfBeginning, StringFormat=t, ConverterCulture=ru-RU}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Конец" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="0 10 0 10">
+                                    <Run Text="{Binding DateTimeOfEnding, StringFormat=d, ConverterCulture=ru-RU}"/>
+                                    <Run Text="{Binding DateTimeOfEnding, StringFormat=t, ConverterCulture=ru-RU}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Занятие было" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Margin="0 10 0 10" x:Name="checkSkip" IsChecked="{Binding LessonIsBe, Mode=TwoWay}">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="4" ScaleY="4"/>
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

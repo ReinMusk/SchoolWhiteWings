@@ -46,6 +46,6 @@
                 Height="70"
                 Width="400"
                 Background="#D1C8B8"
-                Click="SignInBtn_Click"/>
+                Click="SignInBtn_Click" FontSize="28"/>
     </Grid>
 </Page>

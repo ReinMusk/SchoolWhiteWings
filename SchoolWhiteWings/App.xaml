@@ -7,10 +7,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Red" SecondaryColor="Red"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="ListView" BasedOn="{StaticResource MaterialDesignListView}"/>
+
             <Style TargetType="TextBlock">
-                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="FontSize" Value="40"/>
                 <Setter Property="Foreground" Value="#36281d"/>
             </Style>
             <!--<Style TargetType="PasswordBox">
@@ -26,12 +30,12 @@
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
             </Style>-->
             <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontSize" Value="30"/>
                 <Setter Property="VerticalContentAlignment" Value="Bottom"/>
                 <Setter Property="Margin" Value="20 0"/>
             </Style>
             <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignPasswordBox}">
-                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontSize" Value="30"/>
                 <Setter Property="VerticalContentAlignment" Value="Bottom"/>
                 <Setter Property="Margin" Value="20 0"/>
             </Style>
@@ -45,6 +49,7 @@
                 <Setter Property="Background" Value="#D1C8B8"/>
                 <Setter Property="Width" Value="300"/>
                 <Setter Property="Height" Value="50"/>
+                <Setter Property="FontSize" Value="28"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

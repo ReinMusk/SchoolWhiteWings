@@ -6,37 +6,54 @@
       xmlns:local="clr-namespace:SchoolWhiteWings.Pages.TeacherPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="JournalPage">
+      Title="Журнал">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <ListView x:Name="lvJournal" 
-                  ItemsSource="{Binding journals}"
-                  Grid.Column="0"
-                  Grid.ColumnSpan="3" 
-                  Grid.Row="1"
-                  Grid.RowSpan="4">
+                  ItemsSource="{Binding journals}" Margin="0 50 0 0" HorizontalAlignment="Center">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Название занятия" Width="auto" DisplayMemberBinding="{Binding Lesson.Section.Name}"/>
-                    <GridViewColumn Header="Имя студента" Width="auto" DisplayMemberBinding="{Binding Student.FirstName}"/>
-                    <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding Student.LastName}"/>
-                    <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Student.Patronymic}"/>
+                    <!--<GridViewColumn Header="Название занятия" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Lesson.Section.Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>-->
+                    <GridViewColumn Header="Имя студента" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Student.FirstName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Фамилия" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Student.LastName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Отчество" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Student.Patronymic}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="Студент был" Width="auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="cbStudentIsBe" Margin="0" IsChecked="{Binding StudentIsBe}" VerticalAlignment="Center" Click="cbStudentIsBe_Click"/>
+                                <CheckBox x:Name="cbStudentIsBe" Margin="0" IsChecked="{Binding StudentIsBe}" VerticalAlignment="Center" Click="cbStudentIsBe_Click">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="4" ScaleY="4"/>
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -44,6 +61,12 @@
             </ListView.View>
         </ListView>
 
-        <Button Grid.Column="0" Grid.Row="0" Content="Назад" Click="ButtonBack"/>
+        <Button Grid.Row="1" Content="Назад"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="30"
+                Height="70"
+                Width="400"
+                Click="ButtonBack"/>
     </Grid>
 </Page>
