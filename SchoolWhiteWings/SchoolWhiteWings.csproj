@@ -105,6 +105,9 @@
     <Compile Include="Pages\AdminPages\AdminAddNewLesson.xaml.cs">
       <DependentUpon>AdminAddNewLesson.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdminPages\StatisticksPage.xaml.cs">
+      <DependentUpon>StatisticksPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TeacherPages\AddGroupPage.xaml.cs">
       <DependentUpon>AddGroupPage.xaml</DependentUpon>
     </Compile>
@@ -144,7 +147,12 @@
     <Compile Include="DataBase\Section.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\SectionPartial.cs" />
     <Compile Include="DataBase\Student.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\StudentPartial.cs" />
+    <Compile Include="DataBase\sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Teacher.cs">
@@ -197,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AdminPages\AdminAddNewLesson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\StatisticksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -272,10 +284,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="TeacherChooseListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -328,6 +336,7 @@
     <Resource Include="Resources\Images\logoWithText.png" />
     <Resource Include="Resources\Images\icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DataBase\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

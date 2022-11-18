@@ -1,4 +1,5 @@
 ﻿using SchoolWhiteWings.DataBase;
+using SchoolWhiteWings.Pages.AdminPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,5 +43,9 @@ namespace SchoolWhiteWings
             NavigationService.Navigate(new AdminTeacherListPage(_tempTeacher));
         }
 
+        private void ToStaticksPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new StatisticksPage());
+        }
     }
 }
