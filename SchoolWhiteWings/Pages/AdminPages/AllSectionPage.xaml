@@ -6,55 +6,71 @@
       xmlns:local="clr-namespace:SchoolWhiteWings"
       mc:Ignorable="d" 
       d:DesignHeight="760" d:DesignWidth="1280"
-      Title="AllSectionPage">
+      Title="Все кружки">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid Background="#BAA388">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button
+                Grid.Column="2"
+                Margin="0 20 0 20"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content="Добавить новый кружок"
+                Width="400"
+                x:Name="AddSectionBtn"
+                Click="AddSectionBtn_Click"/>
+
+            <Button
+                x:Name="BackButton"
+                Content="Назад"
+                Grid.Column="0"
+                Margin="0 20 0 20"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="PreviousPage_Opening"/>
+        </Grid>
         <ListView
             x:Name="SectionLV"
-            Grid.ColumnSpan="4"
             Grid.Row="1"
-            SelectionChanged="SectionLV_SelectionChanged">
+            SelectionChanged="SectionLV_SelectionChanged"
+            Margin="0 50 0 0" HorizontalAlignment="Center">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
-                        Header="Id"
-                        DisplayMemberBinding="{Binding Id}"/>
+                        Header="№" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Id}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn
-                        Header="Название секции"
-                        DisplayMemberBinding="{Binding Name}"/>
+                        Header="Название секции" Width="400">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn
-                        Header="Кабинет"
-                        DisplayMemberBinding="{Binding Cabinet.Number}"/>
+                        Header="Кабинет" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Cabinet.Number}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button
-            Grid.Row="0"
-            Grid.Column="3"
-            Margin="20"
-            Content="Добавить новый кружок"
-            x:Name="AddSectionBtn"
-            Click="AddSectionBtn_Click"/>
-
-        <Button
-            x:Name="BackButton"
-            Margin="20"
-            Content="Назад"
-            FontSize="30"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="PreviousPage_Opening"/>
-
     </Grid>
 </Page>

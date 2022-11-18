@@ -6,65 +6,80 @@
       xmlns:local="clr-namespace:SchoolWhiteWings"
       mc:Ignorable="d" 
       d:DesignHeight="760" d:DesignWidth="1200"
-      Title="AdminTeacherListPage">
+      Title="Преподаватели">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
-            <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
+        <Grid Background="#BAA388">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="BackButton"
+                Content="Назад"
+                Grid.Column="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="PreviousPage_Opening"/>
 
-        <Button
-            x:Name="BackButton"
-            Margin="20"
-            Content="Назад"
-            FontSize="30"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="PreviousPage_Opening"/>
-         
-        <Button
-            x:Name="AddNewTeacherButton"
-            Grid.Column="3"
-            Grid.Row="0"
-            Margin="20"
-            Content="Добавить учителя"
-            FontSize="30"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="TeacherCreatePageOpening"/>
-        
-        <Button
-            x:Name="DeleteTeacherButton"
-            Grid.Column="2"
-            Grid.Row="0"
-            Margin="20"
-            Content="Удалить учителя"
-            FontSize="30"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="TeacherDelete"/>
-        
-        
+            <Button
+                x:Name="AddNewTeacherButton"
+                Grid.Column="1"
+                Content="Добавить учителя"
+                Margin="0 20 0 20"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="TeacherCreatePageOpening"/>
+
+            <Button
+                x:Name="DeleteTeacherButton"
+                Grid.Column="2"
+                Content="Удалить учителя"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="TeacherDelete"/>
+        </Grid>
+
         <ListView x:Name="TeacherList" 
                   ItemsSource="{Binding teacherList}"
-                  Grid.Column="0"
                   Grid.Row="1"
-                  Grid.ColumnSpan="4"
-                  SelectionChanged="Teacher_Redact">
+                  SelectionChanged="Teacher_Redact"
+                  Margin="0 50 0 0" HorizontalAlignment="Center">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Patronymic}"/>
-                    <GridViewColumn Header="Специальность" Width="auto" DisplayMemberBinding="{Binding Speciality}"/>
+                    <GridViewColumn Header="Фамилия" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding FirstName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Имя" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding LastName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Отчество" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Patronymic}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Специальность" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Speciality}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

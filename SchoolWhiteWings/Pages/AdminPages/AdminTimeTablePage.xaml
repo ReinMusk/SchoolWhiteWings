@@ -5,57 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolWhiteWings"
         mc:Ignorable="d"
-        Title="TimeTablePage" Height="760" Width="1280">
+        d:DesignHeight="760" d:DesignWidth="1280"
+        Title="Расписание занятий">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        <Grid Background="#BAA388">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="AddNewButton"
+                Content="Добавить занятие"
+                Grid.Column="2"
+                Margin="0 20 0 20"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="NewLessonAdd_Open"/>
+            <Button
+                x:Name="BackButton"
+                Content="На главную"
+                Grid.Column="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="BackButton_Click"/>
+        </Grid>
         <ListView 
             x:Name="lessons" 
             ItemsSource="{Binding lessonList}"
-            Grid.Column="0"
-            Grid.ColumnSpan="4"
-            Grid.Row="1">
+            Grid.Row="1" Margin="0 50 0 0" HorizontalAlignment="Center">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="27" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Кружок"  DisplayMemberBinding="{Binding Section.Name}"/>
-                    <GridViewColumn Header="Начало занятия" DisplayMemberBinding="{Binding DateTimeOfBeginning}"/>
-                    <GridViewColumn Header="Конец занятия" DisplayMemberBinding="{Binding DateTimeOfEnding}"/>
-                    <GridViewColumn Header="Проведено" DisplayMemberBinding="{Binding LessonIsBe}"/>
+                    <GridViewColumn Header="№" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Id}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Кружок" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Section.Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Начало занятия" Width="400">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10">
+                                    <Run Text="{Binding DateTimeOfBeginning, StringFormat=d, ConverterCulture=ru-RU}"/>
+                                    <Run Text="{Binding DateTimeOfBeginning, StringFormat=t, ConverterCulture=ru-RU}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Конец занятия" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10">
+                                    <Run Text="{Binding DateTimeOfEnding, StringFormat=d, ConverterCulture=ru-RU}"/>
+                                    <Run Text="{Binding DateTimeOfEnding, StringFormat=t, ConverterCulture=ru-RU}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Проведено">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Margin="-10 10 0 10" x:Name="checkSkip" IsChecked="{Binding LessonIsBe, Mode=TwoWay}">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="4" ScaleY="4"/>
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button
-            x:Name="AddNewButton"
-            Margin="10"
-            Content="Добавить занятие"
-            FontSize="20"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="NewLessonAdd_Open"/>
-        <Button
-            x:Name="BackButton"
-            Margin="20"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Grid.Row="5"
-            Content="На главную"
-            FontSize="30"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="BackButton_Click"/>
-        
     </Grid>
 </Page>

@@ -24,7 +24,7 @@ namespace SchoolWhiteWings
             InitializeComponent();
             
             _tempTeacher = teacher;
-            UserNameBlock.Text = $"{teacher.LastName} {teacher.Patronymic}"; 
+            UserNameBlock.Text = $"Заместитель директора: {teacher.LastName} {teacher.Patronymic}"; 
         }
 
         private void LessonTablePage_Opening(object sender, RoutedEventArgs e)
