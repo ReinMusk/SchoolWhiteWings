@@ -49,5 +49,10 @@ namespace SchoolWhiteWings.Pages.AdminPages
                 StudentMostActiveLV.Visibility = Visibility.Visible;
             }
         }
+
+        private void ToPreviousPage_Back(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

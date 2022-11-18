@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolWhiteWings.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       Background="White"
       d:DesignHeight="450" d:DesignWidth="800"
@@ -17,80 +18,77 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel
-            Grid.Row="1"
-            Grid.Column="1">
-            <TextBlock
-                Text="Название кружка"/>
-            <TextBox
-                x:Name="SectionNameTB"
-                Text="{Binding Name}"/>
-        </StackPanel>
-        <StackPanel
-            Grid.Row="2"
-            Grid.Column="1"
-            Orientation="Horizontal">
-            <StackPanel
-                Orientation="Vertical"
-                Width="210">
-                <TextBlock
-                    Text="Кабинет:"/>
-                <ComboBox
-                    x:Name="CabinetCB"
-                    SelectedItem="{Binding Cabinet}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock
-                                HorizontalAlignment="Center">
-                                <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}Номер: {0} Этаж: {1}">
-                                        <Binding Path="Number"/>
-                                        <Binding Path="Floor"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel
-            Grid.Column="1"
-            Grid.Row="3"
-            Orientation="Horizontal">
+        <Grid Grid.ColumnSpan="4" Background="#BAA388">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Button
-                Width="60"
-                Height="100"
                 Content="Удалить"
                 x:Name="DelSectionBtn"
+                Margin="0 20 0 20"
+                Grid.Column="1"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
                 Click="DelSectionBtn_Click"/>
             <Button
-                Width="60"
-                Height="100"
                 Content="Сохранить"
                 x:Name="SaveSectionBtn"
+                Grid.Column="2"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
                 Click="SaveSectionBtn_Click"/>
             <Button
                 x:Name="BackButton"
-                Width="60"
-                Height="100"
                 Content="Назад"
-                FontSize="30"
                 VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center"
                 Click="PreviousPage_Opening"/>
-        </StackPanel>
+        </Grid>
+        <TextBox
+                materialDesign:HintAssist.Hint="Название кружка"
+                materialDesign:HintAssist.IsFloating="True"
+                Grid.Column="0"
+                Grid.Row="1"
+                Margin="50 0 0 0"
+                x:Name="SectionNameTB"
+                Text="{Binding Name}"/>
+        <ComboBox
+                materialDesign:HintAssist.Hint="Кабинет"
+                materialDesign:HintAssist.IsFloating="True"
+                Grid.Column="0"
+                Grid.Row="2"
+                Margin="50 0 0 0"
+                x:Name="CabinetCB"
+                SelectedItem="{Binding Cabinet}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}Номер: {0} Этаж: {1}">
+                                <Binding Path="Number"/>
+                                <Binding Path="Floor"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <StackPanel
             x:Name="TeacherAddPanel"
             Grid.Row="1"
-            Grid.Column="2"
-            Grid.RowSpan="2">
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Margin="0 50 0 0"
+            Grid.RowSpan="2"
+            VerticalAlignment="Center">
             <ScrollViewer 
                 Height="100"
                 CanContentScroll="True"
@@ -100,30 +98,43 @@
                     x:Name="Teachers" 
                     ItemsSource="{Binding teachers}"
                     BorderThickness="0"
-                    Background="Transparent">
+                    Background="Transparent"
+                    HorizontalAlignment="Center">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="ID" Width="auto" DisplayMemberBinding="{Binding Id}"/>
-                            <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
-                            <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Patronymic}"/>
+                            <GridViewColumn Header="Имя" Width="300">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding LastName}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Отчество" Width="300">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Patronymic}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
 
                 </ListView>
             </ScrollViewer>
-            <Button Visibility="Visible"
-                    Margin="2"
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Visibility="Visible"
+                    Margin="0 50 50 0"
                     x:Name="AddCountryBtn"
                     Content="Добавить Учителя" 
-                    Click="NewTeacherToList_Add"
-                    FontSize="18"/>
+                    Click="NewTeacherToList_Add"/>
 
-            <Button Visibility="Visible"
-                    Margin="2"
+                <Button Visibility="Visible"
+                    Margin="0 50 50 0"
                     x:Name="DelCountryBtn" 
                     Content="Удалить учителя"  
                     Click="TeacherFromSection_Delete"
                     FontSize="18"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

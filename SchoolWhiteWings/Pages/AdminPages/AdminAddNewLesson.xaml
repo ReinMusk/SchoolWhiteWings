@@ -8,7 +8,7 @@
       xmlns:local="clr-namespace:SchoolWhiteWings"
       mc:Ignorable="d" 
       d:DesignHeight="760" d:DesignWidth="1280"
-      Title="AdminAddNewLesson">
+      Title="Добавление занятий">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -16,74 +16,85 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2" Background="#BAA388">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="CreateNewButton"
+                Margin="0 20 0 20"
+                Grid.Column="1"
+                Grid.Row="5"
+                Content="Сохранить"
+                FontSize="30"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="CreateNewButton_Click"/>
+            <Button
+                x:Name="BackButton"
+                Margin="20"
+                Grid.Column="0"
+                Grid.Row="5"
+                Content="Назад"
+                FontSize="30"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="BackButton_Click"/>
+        </Grid>
 
         <ComboBox
             Grid.Column="1" 
-            x:Name="secList" 
+            Grid.Row="1"
+            x:Name="secList"
+            Width="600"
+            Height="70"
+            FontSize="30"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
             SelectedItem="{Binding sectionList}" 
             DisplayMemberPath="Name"
             Background="AntiqueWhite"
-            Margin="40, 0"/>
+            Margin="0 0 0 0"/>
 
         <TextBlock
             Text="Кружок"
-            Grid.Row="0"
+            Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="30"/>
 
         <TextBlock
             Text="Время начала"
-            Grid.Row="1"
+            Grid.Row="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="30"/>
         <TextBlock
             Text="Время конца"
-            Grid.Row="2"
+            Grid.Row="3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="30"/>
 
-        <Button
-            x:Name="CreateNewButton"
-            Margin="20"
-            Grid.Column="1"
-            Grid.Row="5"
-            Content="Сохранить"
-            FontSize="30"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="CreateNewButton_Click"/>
-        <Button
-            x:Name="BackButton"
-            Margin="20"
-            Grid.Column="0"
-            Grid.Row="5"
-            Content="Назад"
-            FontSize="30"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            Click="BackButton_Click"/>
-
         <xctk:DateTimePicker
             x:Name="timeOfBegining"
             Grid.Column="1"
-            Grid.Row="1"
-            Margin="40"
-            FontSize="20"
+            Grid.Row="2"
+            FontSize="40"
+            Width="600"
+            Height="200"
             ValueChanged="timeOfBegining_ValueChanged"/>
         <xctk:DateTimePicker
             x:Name="timeOfend"
             Grid.Column="1"
-            Grid.Row="2"
-            Margin="40"
-            FontSize="20"/>
+            Grid.Row="3"
+            FontSize="50"/>
 
     </Grid>
 </Page>

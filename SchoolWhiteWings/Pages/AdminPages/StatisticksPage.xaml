@@ -6,24 +6,22 @@
       xmlns:local="clr-namespace:SchoolWhiteWings.Pages.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StatisticksPage">
+      Title="Статистика">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel
-            Grid.Column="1"
-            Grid.Row="1">
+        <Grid Background="#BAA388">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <ComboBox
+                Margin="0 20 0 20"
+                Grid.Column="1"
                 x:Name="SortsCB"
                 SelectionChanged="SortsCB_SelectionChanged">
                 <ComboBoxItem
@@ -31,57 +29,97 @@
                 <ComboBoxItem
                     Content="Активные учащиеся"/>
             </ComboBox>
-        </StackPanel>
-        <StackPanel 
-            Grid.Column="1"
-            Grid.Row="2">
-            <ListView
+            <Button
+                x:Name="BackToPreviousPage"
+                Content="Назад"
+                Grid.Column="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="ToPreviousPage_Back"/>
+
+            <Button
+                x:Name="btnImport"
+                Content="Импорт данных"
+                Margin="0 20 0 20"
+                Grid.Column="2"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+        </Grid>
+        <ListView
                 x:Name="SectionPopLV"
-                Height="400">
+                Grid.Row="1"
+                Height="400"
+                HorizontalAlignment="Center">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn
-                            Header="Кружок"
-                            DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn
-                            Header="Количество групп"
-                            DisplayMemberBinding="{Binding Group.Count}"/>
-                        <GridViewColumn
-                            Header="Количество учащихся"
-                            DisplayMemberBinding="{Binding StudentCount}"/>
+                    <GridViewColumn
+                            Header="Кружок" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                            Header="Количество групп" Width="400">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Group.Count}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                            Header="Количество учащихся" Width="450">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding StudentCount}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView
+        <ListView
                 x:Name="StudentMostActiveLV"
-                Height="400">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn
-                            Header="ФИО">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock>
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{} {0} {1} {2}">
-                                                <Binding Path="FirstName"/>
-                                                <Binding Path="LastName"/>
-                                                <Binding Path="Patronymic"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn
-                            Header="Класс"
-                            DisplayMemberBinding="{Binding Class.Number}"/>
-                        <GridViewColumn
-                            Header="Общее количество посещений"
-                            DisplayMemberBinding="{Binding JournalCount}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
+                Height="400"
+                Grid.Row="1"
+                HorizontalAlignment="Center">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                            Header="ФИО" Width="600">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{} {0} {1} {2}">
+                                            <Binding Path="FirstName"/>
+                                            <Binding Path="LastName"/>
+                                            <Binding Path="Patronymic"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                            Header="Класс" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Class.Number}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn
+                            Header="Общее количество посещений" Width="600">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding JournalCount}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>
