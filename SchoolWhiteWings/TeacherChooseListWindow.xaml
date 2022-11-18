@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolWhiteWings"
         mc:Ignorable="d"
-        Title="Выбор учителя" Height="450" Width="800">
+        Title="Выбор учителя" Height="450" Width="1000">
     <Grid>
         <ListView x:Name="TeacherList" 
                   ItemsSource="{Binding teacherList}"
@@ -15,11 +15,34 @@
                   SelectionChanged="TeacherList_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Фамилия" Width="auto" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="Имя" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Header="Отчество" Width="auto" DisplayMemberBinding="{Binding Patronymic}"/>
-                    <GridViewColumn Header="Специальность" Width="auto" DisplayMemberBinding="{Binding Speciality}"/>
+                    <GridViewColumn Header="Фамилия" Width="250">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding FirstName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Имя" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding LastName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Отчество" Width="250">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Patronymic}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Специальность" Width="auto" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Speciality}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
