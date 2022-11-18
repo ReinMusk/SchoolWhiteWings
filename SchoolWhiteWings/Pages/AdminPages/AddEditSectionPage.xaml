@@ -29,6 +29,7 @@
                 Text="Название кружка"/>
             <TextBox
                 x:Name="SectionNameTB"
+                Margin="0"         
                 Text="{Binding Name}"/>
         </StackPanel>
         <StackPanel
