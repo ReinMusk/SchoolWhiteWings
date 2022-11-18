@@ -58,6 +58,7 @@
                 Grid.Row="1"
                 Margin="50 0 0 0"
                 x:Name="SectionNameTB"
+                Margin="0"         
                 Text="{Binding Name}"/>
         <ComboBox
                 materialDesign:HintAssist.Hint="Кабинет"

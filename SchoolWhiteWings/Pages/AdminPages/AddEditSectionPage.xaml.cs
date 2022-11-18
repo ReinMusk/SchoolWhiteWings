@@ -56,6 +56,16 @@ namespace SchoolWhiteWings.Pages
 
         private void SaveSectionBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(SectionNameTB.Text))
+            {
+                MessageBox.Show("Введите название кружка");
+                return;
+            }
+            if (CabinetCB.SelectedIndex == -1)
+            {
+                MessageBox.Show("Выберите кабинет");
+                return;
+            }
             currentSection.Name = SectionNameTB.Text;
             currentSection.CabinetId = (CabinetCB.SelectedItem as Cabinet).Id;
             currentSection.isDeleted = false;
@@ -107,11 +117,15 @@ namespace SchoolWhiteWings.Pages
             temp.SectionId = currentSection.Id;
             temp.IsDeleted = false;
 
-            if (temp.SectionId != 0)
+            if (temp.SectionId != 0 & temp.TeacherId != 0)
             {
                 MainWindow.db.TeacherForSection.Add(temp);
                 MainWindow.db.SaveChanges();
                 NavigationService.Navigate(new AddEditSectionPage(currentSection, _teacher));
+            } 
+            else if (temp.TeacherId == 0)
+            {
+                MessageBox.Show("Выберите преподавателя");
             }
             else
             {
