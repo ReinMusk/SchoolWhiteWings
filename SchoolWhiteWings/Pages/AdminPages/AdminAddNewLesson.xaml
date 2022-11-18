@@ -72,18 +72,19 @@
             Click="BackButton_Click"/>
 
         <xctk:DateTimePicker
+            Style="{DynamicResource DateTimePickerStyle1}"
             x:Name="timeOfBegining"
             Grid.Column="1"
             Grid.Row="1"
             Margin="40"
             FontSize="20"
             ValueChanged="timeOfBegining_ValueChanged"/>
-        <xctk:DateTimePicker
+        <xctk:DateTimePicker 
+            Style="{DynamicResource DateTimePickerStyle1}"
             x:Name="timeOfend"
             Grid.Column="1"
             Grid.Row="2"
             Margin="40"
             FontSize="20"/>
-
     </Grid>
 </Page>
