@@ -43,17 +43,18 @@
                 Margin="0 20 0 20"
                 Grid.Column="2"
                 VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"/>
+                HorizontalContentAlignment="Center"
+                Click="btnImport_Click"/>
         </Grid>
         <ListView
-                x:Name="SectionPopLV"
-                Grid.Row="1"
-                Height="400"
-                HorizontalAlignment="Center">
-                <ListView.View>
-                    <GridView>
+            x:Name="SectionPopLV"
+            Grid.Row="1"
+            Height="400"
+            HorizontalAlignment="Center">
+            <ListView.View>
+                <GridView>
                     <GridViewColumn
-                            Header="Кружок" Width="300">
+                        Header="Кружок" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Name}"/>
@@ -61,7 +62,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn
-                            Header="Количество групп" Width="400">
+                        Header="Количество групп" Width="400">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Group.Count}"/>
@@ -69,25 +70,25 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn
-                            Header="Количество учащихся" Width="450">
+                        Header="Количество учащихся" Width="450">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding StudentCount}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <ListView
-                x:Name="StudentMostActiveLV"
-                Height="400"
-                Grid.Row="1"
-                HorizontalAlignment="Center">
+            x:Name="StudentMostActiveLV"
+            Height="400"
+            Grid.Row="1"
+            HorizontalAlignment="Center">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
-                            Header="ФИО" Width="600">
+                        Header="ФИО" Width="600">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="30" Margin="-10 10 0 10">
@@ -103,7 +104,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn
-                            Header="Класс" Width="300">
+                        Header="Класс" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Class.Number}"/>
@@ -111,7 +112,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn
-                            Header="Общее количество посещений" Width="600">
+                        Header="Общее количество посещений" Width="600">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding JournalCount}"/>
