@@ -42,5 +42,9 @@ namespace SchoolWhiteWings
             NavigationService.Navigate(new AdminTeacherListPage(_tempTeacher));
         }
 
+        private void ToStaticksPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.StaticksPage());
+        }
     }
 }

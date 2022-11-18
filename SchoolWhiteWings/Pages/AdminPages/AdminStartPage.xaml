@@ -67,6 +67,15 @@
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             Click="TeacherList_Opening"/>
-        
+        <Button
+            x:Name="ToStaticksPage"
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="10"
+            Content="Статистика"
+            FontSize="26"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Click="ToStaticksPage_Click"/>
     </Grid>
 </Page>
