@@ -36,6 +36,7 @@
                 VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center"
                 Click="CreateNewButton_Click"/>
+            
             <Button
                 x:Name="BackButton"
                 Margin="20"
@@ -65,20 +66,20 @@
         <TextBlock
             Text="Кружок"
             Grid.Row="1"
-            HorizontalAlignment="Center"
+            Margin="500 0 0 0"
             VerticalAlignment="Center"
             FontSize="30"/>
 
         <TextBlock
             Text="Время начала"
             Grid.Row="2"
-            HorizontalAlignment="Center"
+            Margin="500 0 0 0"
             VerticalAlignment="Center"
             FontSize="30"/>
         <TextBlock
             Text="Время конца"
             Grid.Row="3"
-            HorizontalAlignment="Center"
+            Margin="500 0 0 0"
             VerticalAlignment="Center"
             FontSize="30"/>
 
@@ -87,16 +88,18 @@
             x:Name="timeOfBegining"
             Grid.Column="1"
             Grid.Row="2"
-            FontSize="40"
+            FontSize="30"
             Width="600"
-            Height="200"
+            Height="100"
             ValueChanged="timeOfBegining_ValueChanged"/>
         <xctk:DateTimePicker 
             Style="{DynamicResource DateTimePickerStyle1}"
             x:Name="timeOfend"
+            Width="600"
+            Height="100"
             Grid.Column="1"
             Grid.Row="3"
-            FontSize="50"/>
+            FontSize="30"/>
 
 
     </Grid>

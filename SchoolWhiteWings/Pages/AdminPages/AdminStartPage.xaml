@@ -2,7 +2,8 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:SchoolWhiteWings"
       mc:Ignorable="d" 
       d:DesignHeight="760" d:DesignWidth="1280"
@@ -13,7 +14,11 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Background="#BAA388">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#BAA388" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -78,6 +83,31 @@
                 VerticalContentAlignment="Center"
                 Click="ToStaticksPage_Click"/>
         </Grid>
-        <Image Source="/Resources/Images/background.jpg" Grid.Row="1" Width="1950" Height="1100"/>
+        <Image Source="/Resources/Images/school.png" Grid.Row="1" Width="900" Height="900"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <materialDesign:PackIcon Kind="School" Width="40" Height="40" Margin="0 0 10 0"/>
+                <TextBlock Text="Полное наименование: Школа Белые Крылья" FontSize="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <materialDesign:PackIcon Kind="AddressMarker" Width="40" Height="40" Margin="0 0 10 0"/>
+                <TextBlock Text="Юридический адрес: г. Казань, ул. Пушкина, 30" FontSize="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <materialDesign:PackIcon Kind="Account" Width="40" Height="40" Margin="0 0 10 0"/>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Руководитель образовательного учреждения:" FontSize="30"/>
+                    <TextBlock Text="Гаврилов Даниил Игоревич" FontSize="30"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <materialDesign:PackIcon Kind="Contact" Width="40" Height="40" Margin="0 0 10 0"/>
+                <TextBlock Text="Телефон: 8-486-345-56-56" FontSize="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <materialDesign:PackIcon Kind="Email" Width="40" Height="40" Margin="0 0 10 0"/>
+                <TextBlock Text="E-mail: school@mail.ru" FontSize="30"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

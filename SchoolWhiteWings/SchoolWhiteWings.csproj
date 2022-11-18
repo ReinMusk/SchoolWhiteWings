@@ -106,9 +106,6 @@
     <Compile Include="AddGroupWindow.xaml.cs">
       <DependentUpon>AddGroupWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\sysdiagrams.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AdminPages\AdminAddNewLesson.xaml.cs">
       <DependentUpon>AdminAddNewLesson.xaml</DependentUpon>
     </Compile>
@@ -352,6 +349,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\school.png" />
     <Resource Include="Resources\Images\background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
