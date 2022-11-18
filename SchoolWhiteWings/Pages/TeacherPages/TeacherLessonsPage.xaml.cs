@@ -38,7 +38,7 @@ namespace SchoolWhiteWings.Pages.TeacherPages
         }
 
         private void ButtonBack(object sender, RoutedEventArgs e)
-            {
+        {
             NavigationService.GoBack();
         }
 

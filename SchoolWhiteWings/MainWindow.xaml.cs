@@ -37,25 +37,17 @@ namespace SchoolWhiteWings
             tbTitle.Text = pageTitle;
 
             if (pageContent is AuthPage)
-                spButtons.Visibility = Visibility.Hidden;
+                btnGoOut.Visibility = Visibility.Hidden;
             else
             {
-                spButtons.Visibility = Visibility.Visible;
-                btnGoForward.Visibility = Visibility.Visible;
-                btnGoBack.Visibility = Visibility.Visible;
+                btnGoOut.Visibility = Visibility.Visible;
             }
         }
 
-        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        private void btnGoOut_Click(object sender, RoutedEventArgs e)
         {
             if (Log_frame.CanGoBack)
-                Log_frame.GoBack();
-        }
-
-        private void btnGoForward_Click(object sender, RoutedEventArgs e)
-        {
-            if (Log_frame.CanGoForward)
-                Log_frame.GoForward();
+                Log_frame.Content = new AuthPage();
         }
     }
 }

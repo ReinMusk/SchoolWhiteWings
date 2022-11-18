@@ -6,35 +6,40 @@
       xmlns:local="clr-namespace:SchoolWhiteWings"
       mc:Ignorable="d" 
       d:DesignHeight="760" d:DesignWidth="1280"
-      Title="SectionTablePage">
+      Title="Образовательные кружки">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <ListView x:Name="SectionsLV" 
                   ItemsSource="{Binding teacherForSection}"
-                  Grid.Column="0"
-                  Grid.ColumnSpan="3" 
-                  Grid.Row="1"
-                  Grid.RowSpan="4" SelectionChanged="SectionsLV_SelectionChanged">
+                  Grid.Row="0"
+                  SelectionChanged="SectionsLV_SelectionChanged"
+                  HorizontalAlignment="Center"
+                  Margin="0 50 0 0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Название секции" Width="auto" DisplayMemberBinding="{Binding Section.Name}"/>
-                    <GridViewColumn Header="Кабинет" Width="auto" DisplayMemberBinding="{Binding Section.Cabinet.Number}"/>
+                    <GridViewColumn Header="Название" Width="500">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Section.Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Кабинет" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="30" Margin="-10 10 0 10" Text="{Binding Section.Cabinet.Number}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Grid.Column="0" Grid.Row="0" Content="Назад" Click="ButtonBack"/>
+        <Button Grid.Row="1" Content="Назад" Click="ButtonBack"/>
     </Grid>
 </Page>

@@ -1,0 +1,30 @@
+﻿<Page x:Class="SchoolWhiteWings.AddGroupPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolWhiteWings"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="1280"
+      Title="AddGroupPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="nameTxt"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Название"/>
+
+        <Button Content="Назад" Grid.Column="0" Grid.Row="0" Click="ButtonBack" />
+
+        <Button Content="Добавить" Grid.Column="1" Grid.Row="2" Click="ButtonAdd" />
+    </Grid>
+</Page>

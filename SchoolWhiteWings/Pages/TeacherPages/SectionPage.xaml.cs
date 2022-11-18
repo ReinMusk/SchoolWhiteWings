@@ -31,7 +31,7 @@ namespace SchoolWhiteWings
             group = oldGroup;
             teacher = oldTeacher;
             students = MainWindow.db.GroupStudent.Where(x => x.GroupId == group.Id && x.isDeleted != true).ToList();
-
+            tbGroupName.Text = $" Группа: {group.Name}";
             this.DataContext = this;
         }
 

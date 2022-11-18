@@ -31,7 +31,6 @@ namespace SchoolWhiteWings
 
             teacher = oldTeacher;
             teacherForSection = MainWindow.db.TeacherForSection.Where(x => x.TeacherId == teacher.Id).ToList();
-
             this.DataContext = this;
         }
 
