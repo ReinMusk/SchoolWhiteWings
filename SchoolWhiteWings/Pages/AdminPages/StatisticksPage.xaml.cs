@@ -13,27 +13,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SchoolWhiteWings.Pages
+namespace SchoolWhiteWings.Pages.AdminPages
 {
     /// <summary>
-    /// Interaction logic for StaticksPage.xaml
+    /// Interaction logic for StatisticksPage.xaml
     /// </summary>
-    public partial class StaticksPage : Page
+    public partial class StatisticksPage : Page
     {
-        public StaticksPage()
+        public StatisticksPage()
         {
             InitializeComponent();
             SectionPopLV.ItemsSource = MainWindow.db.Section
                 .Where(a => a.isDeleted != true)
                 .OrderByDescending(a => a.Group.Count).ToList();
-
+            
             var students = MainWindow.db.Student.ToList();
             var orderedStud = 
                 from s in students
                 orderby s.JournalCount descending
                 select s;
             StudentMostActiveLV.ItemsSource = orderedStud;
-
+            
             SortsCB.SelectedIndex = 0;
         }
 
