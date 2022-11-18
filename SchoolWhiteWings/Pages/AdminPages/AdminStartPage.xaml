@@ -21,6 +21,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock
                 x:Name="UserNameBlock"
@@ -56,6 +57,16 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Click="TeacherList_Opening"/>
+            <Button
+                x:Name="ToStaticksPage"
+                Grid.Row="3"
+                Grid.Column="6"
+                Margin="10"
+                Content="Статистика"
+                FontSize="26"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Click="ToStaticksPage_Click"/>
         </Grid>
         <Image Source="/Resources/Images/background.jpg" Grid.Row="1" Width="1950" Height="1100"/>
     </Grid>
