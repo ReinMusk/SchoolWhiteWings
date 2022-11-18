@@ -109,6 +109,7 @@ namespace SchoolWhiteWings.Pages.AdminPages
                     worksheet.Cells[1][startRowIndex] = result.FirstName + " " + result.LastName + " " + result.Patronymic;
                     worksheet.Cells[2][startRowIndex] = result.Class.Number;
                     worksheet.Cells[3][startRowIndex] = result.JournalCount;
+                    startRowIndex++;
                 }
                 worksheet.Columns.AutoFit();
                 worksheet.Rows.AutoFit();
